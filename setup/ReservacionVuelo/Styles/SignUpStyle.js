@@ -1,6 +1,6 @@
 import {   Dimensions, StyleSheet } from 'react-native';
 
-const styleLogIn = StyleSheet.create({
+const styleSignUp = StyleSheet.create({  
     Father:{
         flex:1,
         width: '100%',
@@ -28,14 +28,8 @@ const styleLogIn = StyleSheet.create({
         marginTop: 50,
         flex:1,
         height:'50%',
-    },
-    checkBox:  {
-        borderWidth: 3,
-        backgroundColor:'red',
-        fontSize: 40
+        
     }
-
-
   });
 
-  export default styleLogIn;
+  export default styleSignUp;

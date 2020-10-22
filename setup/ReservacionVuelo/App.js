@@ -1,15 +1,41 @@
-import React from 'react';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import LogInView from './screens/LogInScreen';
+import SignUp from './screens/SignUp';
+import {
+  LogBox,
+} from 'react-native';
 
-import LogInScreen from './screens/LogInScreen';
 
-import {View, Text, StyleSheet} from 'react-native';
+const Stack = createStackNavigator();
 
-const App = () => {
-   return (
-      <View style={{flex: 1, justifyContent: 'flex-start', alignItems: 'center', marginRight: 25, marginLeft: 25, height:'100%'}}>
-         <LogInScreen />
-      </View>
-   );
-}
+LogBox.ignoreLogs([
+  'Non-serializable values were found in the navigation state',
+]);
+
+const App: () => React$Node = () => {
+  
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="LogIn"
+          component={LogInView}
+          options={{
+            headerShown: false,
+            title: 'Log in',
+        }} 
+        />
+        <Stack.Screen name="SignUp" 
+          options={{
+            headerShown: false,
+          }} 
+        component={SignUp} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default App;
