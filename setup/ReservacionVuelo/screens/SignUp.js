@@ -1,11 +1,13 @@
-import * as React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import React, { useState } from 'react';
+import CheckBox from '@react-native-community/checkbox';
 import styleLogin from '../styles/LogInStyle';
-import { View, Text, TextInput, Image, CheckBox, TouchableOpacity, Linking  } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Linking  } from 'react-native';
 
 
 const SignUp = () => {
+    const [toggleCheckBox, setToggleCheckBox] = useState(false)
+
+
    return (
     <View style={styleLogin.Father}>
         <Text style={styleLogin.TextTittle}>Sign Up</Text>
@@ -17,12 +19,18 @@ const SignUp = () => {
         <TextInput style={styleLogin.InputText}/>
         <Text style={styleLogin.InputTittle}>Use 8 or more characters with a mix of letters,
         numbers and symbols</Text>
-        <CheckBox 
-            style={styleLogin.checkBox} 
-            value={true}
-            title='Click Here'
+        <Text>Checkbox1</Text>
+        <CheckBox
+            disabled={false}
+            value={toggleCheckBox}
+            boxType={'square'}
         />
-
+        <Text>Checkbox1</Text>
+        <CheckBox
+            disabled={false}
+            value={toggleCheckBox}
+            boxType={'square'}
+        />
 
         <View style={styleLogin.ButomsArea}>
         
