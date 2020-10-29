@@ -7,7 +7,7 @@ const LoginStyle = StyleSheet.create({
         width: '100%',
     },
     TextTittle:{
-        color: '#B6B7BA',
+        color: '#5C6EF8',
         fontSize: 22,
         fontWeight: 'bold',
         textAlign: 'left',
@@ -22,11 +22,9 @@ const LoginStyle = StyleSheet.create({
     InputText: {
         borderColor: 'gray', 
         borderWidth: 1,
-        flexWrap: 'wrap', 
         height: 48,
-        justifyContent: 'center',
         marginBottom: 15,
-        width: 380 ,
+        width: 400 ,
         color: 'black',
     },
     ShowPass:{
@@ -41,7 +39,7 @@ const LoginStyle = StyleSheet.create({
         marginTop: 40,
     },
     GoogleLoginButton: {
-        backgroundColor: '#B6B7BA',
+        backgroundColor: '#5C6EF8',
         borderRadius: 10,
         flexWrap: 'wrap', 
         height: 25,
@@ -59,8 +57,8 @@ const LoginStyle = StyleSheet.create({
         borderRadius:10,
         borderWidth: 1,
         borderColor: '#fff',
-        width: '90%',
-        height: 45
+        width: '85%',
+        height: 47
       },
       loginText:{
           color:'#fff',
@@ -88,14 +86,13 @@ const LoginStyle = StyleSheet.create({
     },
     eyeIcon: {
         alignSelf: 'flex-end',
-        paddingLeft: 350,
+        paddingLeft: 370,
         paddingBottom: 28,
         position: 'absolute',
-
+        
     },
     eyeContainer: {
         flexDirection: 'row',
-        justifyContent: 'center'
     }
   });
 

@@ -43,7 +43,7 @@ const Login = () => {
          </TouchableOpacity>
             <Text style={{textAlign: 'center', color:'#B6B7BA', margin: 10}}>or</Text>
             <TouchableOpacity>
-               <GoogleSocialButton/>
+               <GoogleSocialButton />
             </TouchableOpacity>
             <Text style={{marginTop: 20}}>
                <Text style={{color: '#B6B7BA'}}>Don´t have an account? </Text>
