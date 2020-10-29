@@ -26,7 +26,7 @@ const LoginStyle = StyleSheet.create({
         height: 48,
         justifyContent: 'center',
         marginBottom: 15,
-        width: '100%' ,
+        width: 380 ,
         color: 'black',
     },
     ShowPass:{
@@ -79,7 +79,6 @@ const LoginStyle = StyleSheet.create({
         padding: 10,
     },
     input: {
-        flex: 1,
         paddingTop: 10,
         paddingRight: 10,
         paddingBottom: 10,
@@ -87,7 +86,17 @@ const LoginStyle = StyleSheet.create({
         backgroundColor: '#fff',
         color: '#424242',
     },
+    eyeIcon: {
+        alignSelf: 'flex-end',
+        paddingLeft: 350,
+        paddingBottom: 28,
+        position: 'absolute',
 
+    },
+    eyeContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center'
+    }
   });
 
   export default LoginStyle;
