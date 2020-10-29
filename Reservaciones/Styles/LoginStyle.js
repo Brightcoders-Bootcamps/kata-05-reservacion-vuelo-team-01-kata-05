@@ -22,9 +22,11 @@ const LoginStyle = StyleSheet.create({
     InputText: {
         borderColor: 'gray', 
         borderWidth: 1,
+        flexWrap: 'wrap', 
         height: 48,
+        justifyContent: 'center',
         marginBottom: 15,
-        width: 400 ,
+        width: 380 ,
         color: 'black',
     },
     ShowPass:{
@@ -57,7 +59,7 @@ const LoginStyle = StyleSheet.create({
         borderRadius:10,
         borderWidth: 1,
         borderColor: '#fff',
-        width: '85%',
+        width: '90%',
         height: 47
       },
       loginText:{
@@ -66,7 +68,8 @@ const LoginStyle = StyleSheet.create({
           paddingLeft : 10,
           paddingRight : 10,
           fontWeight: 'bold'
-      },searchSection: {
+      },
+      searchSection: {
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'center',
@@ -85,14 +88,14 @@ const LoginStyle = StyleSheet.create({
         color: '#424242',
     },
     eyeIcon: {
-        alignSelf: 'flex-end',
-        paddingLeft: 370,
-        paddingBottom: 28,
+        paddingTop: 17,
+        paddingRight: 10,
         position: 'absolute',
-        
+        alignSelf: 'flex-end',
     },
     eyeContainer: {
         flexDirection: 'row',
+        justifyContent: 'center'
     }
   });
 

@@ -18,20 +18,17 @@ const Login = () => {
             <Text style={styleLogin.InputTittle}>Email * </Text>   
             <TextInput style={styleLogin.InputText}/>
             <Text style={styleLogin.InputTittle}>Password *</Text>
-            <View style={styleLogin.eyeContainer}>
+            <View style={styleLogin.eyeContainer}>  
                <View>
                   <TextInput 
                      secureTextEntry={isHidden}
                      style={styleLogin.InputText} 
                   />
-                  
-               </View>
-               <View style={styleLogin.eyeIcon}>
                   <TouchableOpacity
-                  onPressIn={() => setIsHidden(!isHidden)}   
-                  >
+                  style={styleLogin.eyeIcon}
+                  onPressIn={() => setIsHidden(!isHidden)}>
                      <FontAwesomeIcon icon={ faEye } />
-                </TouchableOpacity>
+                  </TouchableOpacity>
                </View>
             </View>
         </View>
