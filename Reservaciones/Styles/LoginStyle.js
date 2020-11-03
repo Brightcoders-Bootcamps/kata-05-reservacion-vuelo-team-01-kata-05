@@ -68,7 +68,7 @@ const LoginStyle = StyleSheet.create({
     borderRadius: 10,
     borderWidth: 1,
     borderColor: '#fff',
-    width: '90%',
+    width: '100%',
     height: 47,
   },
   loginText: {
