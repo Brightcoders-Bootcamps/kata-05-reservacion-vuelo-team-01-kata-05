@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, Component} from 'react';
 import {
    View,
    Text,
@@ -26,11 +26,9 @@ async function onGoogleButtonPress() {
 }
 
 function LoginApp() {
-  // Set an initializing state whilst Firebase connects
   const [initializing, setInitializing] = useState(true);
   const [user, setUser] = useState();
 
-  // Handle user state changes
   function onAuthStateChanged(user) {
     setUser(user);
     if (initializing) setInitializing(false);
@@ -38,7 +36,7 @@ function LoginApp() {
 
   useEffect(() => {
     const subscriber = auth().onAuthStateChanged(onAuthStateChanged);
-    return subscriber; // unsubscribe on unmount
+    return subscriber; 
   }, []);
 
   if (initializing) return null;
@@ -58,28 +56,25 @@ function LoginApp() {
   );
 }
 
-const Login = () => {
-  const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  const [isActive, setIsActive] = useState(false);
-  const customStyleFocus = isActive
-    ? styleLogin.textInputFocus
-    : styleLogin.InputText;
-  const signOut = () => {
+class Login  extends React.Component{
+   //const [isPasswordHidden, setIsPasswordHidden] = useState(true);
+  // const [isActive, setIsActive] = useState(true);
+  //const customStyleFocus = isActive?styleLogin.textInputFocus:'';
+  constructor(props){
+    super(props)
+    this.state = {
+      isPasswordHidden :true
+     }
+    }
+
+   signOut = () => {
     auth()
       .signOut()
       .then(() => console.log('User signed out!'));
   };
 
-//this is for the email-pass functionality
-  const [ email, setEmail ] = useState('');
-  const [ password, setPassword ] = useState('');
 
-  const Login = () =>{
-    console.log('Pressed');
-  }
-  
-
-  const EmailPassSignIn = () => {
+   EmailPassSignIn = () => {
 
     auth()
       .createUserWithEmailAndPassword('jhon.doe@example.com', 'SupesssrSecretPassword!')
@@ -98,39 +93,66 @@ const Login = () => {
         console.error(error);
       });
   }
-  
+
+  handlerFocus = (input) => {
+    this.setState({
+        [input]:true
+     });
+  };
+
+  handlerBlur = (input) => {
+      this.setState({
+          [input]:false
+      });
+  };
+
+  changeShowPass = () => {
+    const {isPasswordHidden} = this.state;
+    this.setState({isPasswordHidden: !isPasswordHidden});
+  }
+    
+  render(){
   return (
     <View style={styleLogin.Father}>
       <View>
-        <Text style={styleLogin.TextTittle}>Log In</Text>
-        <Text style={styleLogin.InputTittle}>Email * </Text>
-        <TextInput 
-            onFocus={() => setIsActive(true)}
-            onBlur={() => setIsActive(false)}
-            style={customStyleFocus} 
-         />
-        <Text style={styleLogin.InputTittle}>Password *</Text>
         <View style={styleLogin.eyeContainer}>
           <View>
-            <TextInput
-              secureTextEntry={isPasswordHidden}
-              onFocus={() => setIsActive(true)}
-              onBlur={() => setIsActive(false)}
-              style={customStyleFocus}
+            <Text style={styleLogin.TextTittle}>Log In</Text>
+            <Text style={styleLogin.InputTittle}>Email * </Text>
+            <TextInput 
+                style={[styleLogin.InputText, 
+                  this.state.nameInputOneFocus?styleLogin.textInputFocus:styleLogin.InputText]}
+                onFocus={() => this.handlerFocus('nameInputOneFocus')}
+                onBlur={() => this.handlerBlur('nameInputOneFocus')}
+                
             />
-            <TouchableOpacity
-              style={styleLogin.eyeIcon}
-              onPressIn={() => setIsPasswordHidden(!isPasswordHidden)}>
-              <FontAwesomeIcon icon={faEye} />
-            </TouchableOpacity>
+            <Text style={styleLogin.InputTittle}>Password *</Text>
+            <View style={styleLogin.eyeContainer}>
+              <View>
+                <TextInput
+                  secureTextEntry={this.state.isPasswordHidden}
+                  style={[styleLogin.InputText, 
+                    this.state.nameInputTwoFocus?styleLogin.textInputFocus:styleLogin.InputText]}
+                  onFocus={() => this.handlerFocus('nameInputTwoFocus')}
+                  onBlur={() => this.handlerBlur('nameInputTwoFocus')}
+                  
+                />
+                <TouchableOpacity
+                  style={styleLogin.eyeIcon}
+                  onPressIn={() => this.changeShowPass()}>
+                  <FontAwesomeIcon icon={faEye} />
+                </TouchableOpacity>
+              </View>
+            </View>
           </View>
+          
         </View>
       </View>
       <View style={styleLogin.ButomsArea}>
         <TouchableOpacity
           style={styleLogin.loginScreenButton}
           underlayColor="#fff"
-          onPress={EmailPassSignIn}>
+          >
           <Text style={styleLogin.loginText}>Login</Text>
         </TouchableOpacity>
         <Text style={{textAlign: 'center', color: '#B6B7BA', margin: 10}}>
@@ -154,10 +176,11 @@ const Login = () => {
           </Text>
         </Text>
         <LoginApp />
-        <Button title="Sign Out" onPress={() => signOut()} />
+        <Button title="Sign Out" onPress={() => this.signOut()} />
       </View>
     </View>
   );
-};
+  }
+}
 
 export default Login;
