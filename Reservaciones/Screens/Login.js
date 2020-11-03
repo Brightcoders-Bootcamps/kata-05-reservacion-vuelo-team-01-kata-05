@@ -70,6 +70,35 @@ const Login = () => {
       .then(() => console.log('User signed out!'));
   };
 
+//this is for the email-pass functionality
+  const [ email, setEmail ] = useState('');
+  const [ password, setPassword ] = useState('');
+
+  const Login = () =>{
+    console.log('Pressed');
+  }
+  
+
+  const EmailPassSignIn = () => {
+
+    auth()
+      .createUserWithEmailAndPassword('jhon.doe@example.com', 'SupesssrSecretPassword!')
+      .then(() => {
+        console.log('User account created & signed in!');
+      })
+      .catch(error => {
+        if (error.code === 'auth/email-already-in-use') {
+          console.log('That email address is already in use!');
+        }
+
+        if (error.code === 'auth/invalid-email') {
+          console.log('That email address is invalid!');
+        }
+
+        console.error(error);
+      });
+  }
+  
   return (
     <View style={styleLogin.Father}>
       <View>
@@ -100,7 +129,8 @@ const Login = () => {
       <View style={styleLogin.ButomsArea}>
         <TouchableOpacity
           style={styleLogin.loginScreenButton}
-          underlayColor="#fff">
+          underlayColor="#fff"
+          onPress={EmailPassSignIn}>
           <Text style={styleLogin.loginText}>Login</Text>
         </TouchableOpacity>
         <Text style={{textAlign: 'center', color: '#B6B7BA', margin: 10}}>

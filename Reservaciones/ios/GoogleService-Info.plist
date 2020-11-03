@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>719932258999-6u65dgp9cklf40mtquu7a28shp79akve.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.719932258999-6u65dgp9cklf40mtquu7a28shp79akve</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDi3B5y9Wffsu0tpSF8NNOXgKiDhSkIg9Y</string>
+	<key>GCM_SENDER_ID</key>
+	<string>719932258999</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.ReservacionesV1</string>
+	<key>PROJECT_ID</key>
+	<string>fir-da46f</string>
+	<key>STORAGE_BUCKET</key>
+	<string>fir-da46f.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:719932258999:ios:dde7dae8795fa552bbab32</string>
+	<key>DATABASE_URL</key>
+	<string>https://fir-da46f.firebaseio.com</string>
+</dict>
+</plist>

@@ -25,7 +25,7 @@ const LoginStyle = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     marginBottom: 15,
-    width: 400,
+    width: 380,
     color: 'black',
   },
   textInputFocus: {
