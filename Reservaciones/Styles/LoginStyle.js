@@ -106,6 +106,13 @@ const LoginStyle = StyleSheet.create({
     flexDirection: 'row',
     // justifyContent: 'center'
   },
+  errorLogin:{
+    color: 'red',
+  },
+  errorPass: {
+    borderColor: 'red',
+    
+  }
 });
 
 export default LoginStyle;

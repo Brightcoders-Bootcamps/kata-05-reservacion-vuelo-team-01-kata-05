@@ -57,13 +57,13 @@ function LoginApp() {
 }
 
 class Login  extends React.Component{
-   //const [isPasswordHidden, setIsPasswordHidden] = useState(true);
-  // const [isActive, setIsActive] = useState(true);
-  //const customStyleFocus = isActive?styleLogin.textInputFocus:'';
   constructor(props){
     super(props)
     this.state = {
-      isPasswordHidden :true
+      isPasswordHidden :true,
+      userEmail: '',
+      userPass:'',
+      errorLogin: '',
      }
     }
 
@@ -101,15 +101,41 @@ class Login  extends React.Component{
   };
 
   handlerBlur = (input) => {
+    let leghtEmail = this.state.userEmail;
+    if (leghtEmail.trim() ===''){
       this.setState({
-          [input]:false
-      });
+        [input]:false
+    });
+    }else{
+      this.setState({
+        [input]:true
+    });
+    }
   };
 
   changeShowPass = () => {
     const {isPasswordHidden} = this.state;
     this.setState({isPasswordHidden: !isPasswordHidden});
   }
+
+  async SignInWithEmailPass(email, password)  {
+    try {
+
+      if(email.trim() === ''){
+        alert('Indtroduzca un email por favor');
+      }else if(password.trim() === ''){
+        alert('Indtroduzca un password por favor');
+      }else{
+        await auth().signInWithEmailAndPassword(email, password);
+       alert('entro por email y pass')
+        //await auth().onAuthStateChanged(user => {  alert(user.email);  })
+      }
+       
+    } catch (error) {
+      let errorMessage = e.message.toString(e);
+      this.setState({errorLogin: errorMessage });
+      }
+    }
     
   render(){
   return (
@@ -124,9 +150,14 @@ class Login  extends React.Component{
                   this.state.nameInputOneFocus?styleLogin.textInputFocus:styleLogin.InputText]}
                 onFocus={() => this.handlerFocus('nameInputOneFocus')}
                 onBlur={() => this.handlerBlur('nameInputOneFocus')}
+                keyboardType = {'email-address'}
+                onChangeText = { val => this.setState({userEmail: val})}
                 
             />
-            <Text style={styleLogin.InputTittle}>Password *</Text>
+            <View style={{flexDirection: 'row'}}>
+              <Text style={styleLogin.InputTittle}>Password *</Text>
+              <Text style={styleLogin.errorLogin}>{this.state.errorLogin}</Text>
+            </View>
             <View style={styleLogin.eyeContainer}>
               <View>
                 <TextInput
@@ -135,6 +166,7 @@ class Login  extends React.Component{
                     this.state.nameInputTwoFocus?styleLogin.textInputFocus:styleLogin.InputText]}
                   onFocus={() => this.handlerFocus('nameInputTwoFocus')}
                   onBlur={() => this.handlerBlur('nameInputTwoFocus')}
+                  onChangeText = { val => this.setState({userPass: val})}
                   
                 />
                 <TouchableOpacity
@@ -152,6 +184,7 @@ class Login  extends React.Component{
         <TouchableOpacity
           style={styleLogin.loginScreenButton}
           underlayColor="#fff"
+          onPress={() => this.SignInWithEmailPass(this.state.userEmail, this.state.userPass)}
           >
           <Text style={styleLogin.loginText}>Login</Text>
         </TouchableOpacity>
