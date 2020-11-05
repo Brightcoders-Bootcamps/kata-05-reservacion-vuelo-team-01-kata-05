@@ -13,6 +13,7 @@ import {faEye} from '@fortawesome/free-solid-svg-icons';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-community/google-signin';
 import styleLogin from '../Styles/LoginStyle';
+import Loader from '../Screens/Loader';
 
 GoogleSignin.configure({
   webClientId:
@@ -60,6 +61,7 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: false,
       isPasswordHidden: true,
       userEmail: '',
       userPass: '',
@@ -123,19 +125,37 @@ class Login extends React.Component {
       } else if (password.trim() === '') {
         alert('Indtroduzca un password por favor');
       } else {
+       
+        this.setState({
+          loading: true,
+          errorLogin: ''
+        });
+
         await auth().signInWithEmailAndPassword(email, password);
-        alert('entro por email y pass');
+        // alert('entro por email y pass');
         //await auth().onAuthStateChanged(user => {  alert(user.email);  })
+         
+        setTimeout(() => {
+          this.setState({
+            loading: false,
+          });
+        }, 2500);
       }
     } catch (error) {
-      let errorMessage = e.message.toString(e);
+      let errorMessage = error.message.toString(error);
       this.setState({errorLogin: errorMessage});
+      this.setState({
+        loading: false,
+      });
     }
   }
 
+   
   render() {
     return (
       <View style={styleLogin.Father}>
+        <Loader
+          loading={this.state.loading} />
         <View>
           <View style={styleLogin.eyeContainer}>
             <View>
