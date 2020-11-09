@@ -111,14 +111,6 @@ const LoginStyle = StyleSheet.create({
   searchIcon: {
     padding: 10,
   },
-  input: {
-    paddingTop: 10,
-    paddingRight: 10,
-    paddingBottom: 10,
-    paddingLeft: 0,
-    backgroundColor: Colors.white,
-    color: '#424242',
-  },
   eyeIcon: {
     paddingTop: 17,
     paddingRight: 10,
@@ -133,7 +125,6 @@ const LoginStyle = StyleSheet.create({
   },
   eyeContainer: {
     flexDirection: 'row',
-    // justifyContent: 'center'
   },
   errorLogin: {
     color: Colors.red,

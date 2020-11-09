@@ -60,9 +60,9 @@ class Login extends React.Component {
   async SignInWithEmailPass(email, password) {
     try {
       if (email.trim() === '') {
-        alert('Indtroduzca un email por favor');
+        alert('Introduzca un email por favor');
       } else if (password.trim() === '') {
-        alert('Indtroduzca un password por favor');
+        alert('Introduzca un password por favor');
       } else {
         this.setState({
           loading: true,
@@ -77,13 +77,12 @@ class Login extends React.Component {
       }
     } catch (error) {
       const errorMessage = error.message.toString(error);
-      this.setState({errorLogin: errorMessage});
       this.setState({
+        errorLogin: errorMessage,
         loading: false,
       });
     }
   }
-
   render() {
     return (
       <View style={styleLogin.Father}>
@@ -152,11 +151,9 @@ class Login extends React.Component {
             }>
             <Text style={styleLogin.loginText}>{Texts.login}</Text>
           </TouchableOpacity>
-
           <Text style={{textAlign: 'center', color: Colors.gray, margin: 10}}>
             {Texts.or}
           </Text>
-
           <TouchableOpacity
             style={[
               this.state.userEmail.trim() != '' &&
@@ -165,9 +162,7 @@ class Login extends React.Component {
                 : styleLogin.GoogleLoginButton,
             ]}
             onPress={() =>
-              onGoogleButtonPress().then(() =>
-                console.log('Signed in with Google!'),
-              )
+              onGoogleButtonPress()
             }>
             <Image
               source={require('../images/google.png')}
@@ -175,7 +170,6 @@ class Login extends React.Component {
             />
             <Text style={styleLogin.loginText}>{Texts.login_with_google}</Text>
           </TouchableOpacity>
-
           <Text style={{marginTop: 20}}>
             <Text style={{color: Colors.gray}}>
               {Texts.dont_have_an_account}

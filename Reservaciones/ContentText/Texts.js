@@ -7,4 +7,5 @@ export const Texts = {
   dont_have_an_account: 'Don´t have an account?',
   sign_up: 'Sign Up ',
   or: 'or',
+  LoggingIn: 'Logging In...',
 };

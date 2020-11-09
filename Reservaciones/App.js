@@ -1,9 +1,8 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import LoginView from './Screens/Login';
-
 import {View, StyleSheet} from 'react-native';
+import LoginView from './Screens/Login';
 
 export default function App() {
   return (

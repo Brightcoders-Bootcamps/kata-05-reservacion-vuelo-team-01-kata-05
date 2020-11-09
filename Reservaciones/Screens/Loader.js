@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import {Colors} from '../Styles/Colors';
 import {StyleSheet, View, Modal, ActivityIndicator, Text} from 'react-native';
+import {Colors} from '../Styles/Colors';
+import {Texts} from '../ContentText/Texts';
+
 
 const Loader = (props) => {
   const {loading} = props;
@@ -10,9 +12,7 @@ const Loader = (props) => {
       transparent={true}
       animationType={'none'}
       visible={loading}
-      onRequestClose={() => {
-        console.log('close modal');
-      }}>
+      onRequestClose={() => {}}>
       <View style={styles.modalBackground}>
         <View style={styles.activityIndicatorWrapper}>
           <View>
@@ -22,7 +22,7 @@ const Loader = (props) => {
               animating={loading}
             />
             <Text style={{color: Colors.blue, marginTop: 25}}>
-              Logging In...
+              {Texts.LoggingIn}
             </Text>
           </View>
         </View>
