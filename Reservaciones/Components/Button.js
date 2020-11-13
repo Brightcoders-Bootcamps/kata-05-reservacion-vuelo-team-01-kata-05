@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text, TouchableOpacity,Image} from 'react-native';
+import PropTypes from 'prop-types';
 import styleLogin from '../Styles/LoginStyle';
-import {Texts} from '../ContentText/Texts';
+
 
 class ButtonAction extends Component {
   constructor(props) {
@@ -29,6 +30,12 @@ class ButtonAction extends Component {
     );
   }
 }
+
+ButtonAction.propTypes = {
+  imageRequired: PropTypes.bool,
+  title: PropTypes.string,
+  Press : PropTypes.func
+};
 
 export default ButtonAction;
 

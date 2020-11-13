@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {StyleSheet, View, Modal, ActivityIndicator, Text} from 'react-native';
+import PropTypes from 'prop-types';
 import {Colors} from '../Styles/Colors';
 import {Texts} from '../ContentText/Texts';
 
@@ -48,5 +49,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
 });
+
+Loader.propTypes = {
+  loading: PropTypes.bool,
+  transparent: PropTypes.bool,
+  animationType: PropTypes.string,
+  size : PropTypes.string,
+  color: PropTypes.string,
+  animating:  PropTypes.bool,
+};
 
 export default Loader;

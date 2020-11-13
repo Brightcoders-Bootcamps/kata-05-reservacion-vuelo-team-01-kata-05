@@ -2,15 +2,14 @@ import React, {useState, useEffect, Component} from 'react';
 import {
   View,
   Text,
-  TextInput,
   TouchableOpacity,
   Linking,
-  Image,
 } from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
 import auth from '@react-native-firebase/auth';
 import {GoogleSignin} from '@react-native-community/google-signin';
+import PropTypes from 'prop-types';
 import {Colors} from '../Styles/Colors';
 import {Texts} from '../ContentText/Texts';
 import styleLogin from '../Styles/LoginStyle';
@@ -27,7 +26,8 @@ import ButtonAction from '../Components/Button'
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     return auth().signInWithCredential(googleCredential);
   }
-class Login extends React.Component {
+
+  class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -146,5 +146,24 @@ class Login extends React.Component {
     );
   }
 }
+
+Login.propTypes = {
+  name: PropTypes.string,
+  loading: PropTypes.bool,
+  isPasswordHidden: PropTypes.bool,
+  userEmail: PropTypes.string,
+  userPass: PropTypes.string,
+  errorLogin: PropTypes.string,
+  title: PropTypes.string,
+  Vemail: PropTypes.string,
+  Hfocus:  PropTypes.func,
+  HBlur:  PropTypes.func,
+  campo: PropTypes.string,
+  keyboard : PropTypes.bool,
+  errorLogin: PropTypes.string,
+  changeText: PropTypes.func,
+  imageRequired: PropTypes.bool,
+  Press : PropTypes.func
+};
 
 export default Login;
