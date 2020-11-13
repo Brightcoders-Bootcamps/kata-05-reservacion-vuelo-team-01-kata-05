@@ -60,16 +60,6 @@ const LoginStyle = StyleSheet.create({
     padding: 20,
     width: '100%',
   },
-  GoogleLoginButtonBlue: {
-    backgroundColor: Colors.blue,
-    borderRadius: 10,
-    flexWrap: 'wrap',
-    height: 47,
-    justifyContent: 'center',
-    margin: 10,
-    padding: 20,
-    width: '100%',
-  },
   loginScreenButton: {
     backgroundColor: Colors.gray,
     borderRadius: 10,
@@ -77,10 +67,11 @@ const LoginStyle = StyleSheet.create({
     borderColor: Colors.white,
     height: 47,
     justifyContent: 'center',
+    alignContent: 'center',
+    textAlign: 'center',
     marginRight: 40,
     marginLeft: 40,
     marginTop: 10,
-    width: '100%',
   },
   loginScreenButtonBlue: {
     backgroundColor: Colors.blue,
@@ -92,7 +83,6 @@ const LoginStyle = StyleSheet.create({
     marginRight: 40,
     marginLeft: 40,
     marginTop: 10,
-    width: '100%',
   },
   loginText: {
     color: Colors.white,

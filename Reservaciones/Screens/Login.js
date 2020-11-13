@@ -137,7 +137,7 @@ import ButtonAction from '../Components/Button'
             </Text>
             <Text
               style={{color: Colors.blue, textDecorationLine: 'underline'}}
-              onPress={() => Linking.openURL('https://www.google.com/')}>
+              onPress={() => this.props.navigation.navigate('SignUp')}>
               {Texts.sign_up}
             </Text>
           </Text>
@@ -151,8 +151,6 @@ Login.propTypes = {
   name: PropTypes.string,
   loading: PropTypes.bool,
   isPasswordHidden: PropTypes.bool,
-  userEmail: PropTypes.string,
-  userPass: PropTypes.string,
   errorLogin: PropTypes.string,
   title: PropTypes.string,
   Vemail: PropTypes.string,

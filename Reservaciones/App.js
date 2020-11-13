@@ -1,15 +1,20 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import LoginView from './Screens/Login';
+import SignUpView from './Screens/SignUp';
+
+const Stack = createStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={{flex: 1, justifyContent: 'center'}}>
-        <LoginView />
-      </View>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" options={{ headerShown: false }} component={LoginView} />
+        <Stack.Screen name="SignUp" component={SignUpView} />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
