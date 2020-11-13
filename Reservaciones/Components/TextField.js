@@ -1,0 +1,31 @@
+import React, {Component} from 'react';
+import {View, Text, TextInput} from 'react-native';
+import styleLogin from '../Styles/LoginStyle';
+
+class TextField extends Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    const {nameHandlerFocus, Hfocus, HBlur, campo, changeText, title, keyboard, errorLogin} = this.props;
+    return (
+      <View>
+        <View style={{flexDirection: 'row'}}>
+            <Text style={styleLogin.InputTittle}>{title}</Text>
+            <Text style={styleLogin.errorLogin}>{errorLogin}</Text>
+        </View>
+        <TextInput
+          style={
+            nameHandlerFocus ? styleLogin.textInputFocus : styleLogin.InputText
+          }
+          secureTextEntry = {keyboard}
+          onFocus={() => Hfocus()} 
+          onBlur={() => HBlur()}
+          onChangeText={(val) => changeText({input: campo,val: val})}
+        />
+      </View>
+    );
+  }
+}
+
+export default TextField;

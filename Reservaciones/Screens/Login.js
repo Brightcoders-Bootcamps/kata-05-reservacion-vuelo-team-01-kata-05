@@ -15,16 +15,18 @@ import {Colors} from '../Styles/Colors';
 import {Texts} from '../ContentText/Texts';
 import styleLogin from '../Styles/LoginStyle';
 import Loader from '../Screens/Loader';
+import TextField from '../Components/TextField';
+import ButtonAction from '../Components/Button'
 
-GoogleSignin.configure({
-  webClientId:
-    '346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com',
-});
-async function onGoogleButtonPress() {
-  const {idToken} = await GoogleSignin.signIn();
-  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-  return auth().signInWithCredential(googleCredential);
-}
+  GoogleSignin.configure({
+    webClientId:
+      '346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com',
+  });
+  async function onGoogleButtonPress() {
+    const {idToken} = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    return auth().signInWithCredential(googleCredential);
+  }
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -37,21 +39,15 @@ class Login extends React.Component {
     };
   }
   handlerFocus = (input) => {
-    this.setState({
-      [input]: true,
-    });
+    this.setState({[input]: true});
   };
-  handlerBlur = (input) => {
-    let leghtEmail = this.state.userEmail;
-    if (leghtEmail.trim() === '') {
-      this.setState({
-        [input]: false,
-      });
-    } else {
-      this.setState({
-        [input]: true,
-      });
-    }
+  handlerBlur = (input,leghtCampo) => {
+    if (leghtCampo != '') {
+      this.setState({[input]: true});
+    } else this.setState({[input]: false});
+  };
+  handleChangeText = ({input, val}) => {
+    this.setState({[input]: val })
   };
   changeShowPass = () => {
     const {isPasswordHidden} = this.state;
@@ -59,14 +55,11 @@ class Login extends React.Component {
   };
   async SignInWithEmailPass(email, password) {
     try {
-      if (email.trim() === '') {
-        alert('Introduzca un email por favor');
-      } else if (password.trim() === '') {
-        alert('Introduzca un password por favor');
+      if (email.trim() === '' && password.trim() === '') {
+        alert('Campos vacios');
       } else {
         this.setState({
-          loading: true,
-          errorLogin: '',
+          loading: true, errorLogin: '',
         });
         await auth().signInWithEmailAndPassword(email, password);
         setTimeout(() => {
@@ -76,9 +69,8 @@ class Login extends React.Component {
         }, 2500);
       }
     } catch (error) {
-      const errorMessage = error.message.toString(error);
       this.setState({
-        errorLogin: errorMessage,
+        errorLogin: 'Incorrect password and/or email',
         loading: false,
       });
     }
@@ -90,39 +82,28 @@ class Login extends React.Component {
         <View>
           <View style={styleLogin.eyeContainer}>
             <View>
-              <Text style={styleLogin.TextTittle}>{Texts.logIn}</Text>
-              <Text style={styleLogin.InputTittle}>{Texts.email}</Text>
-              <TextInput
-                style={[
-                  styleLogin.InputText,
-                  this.state.nameInputOneFocus
-                    ? styleLogin.textInputFocus
-                    : styleLogin.InputText,
-                ]}
-                onFocus={() => this.handlerFocus('nameInputOneFocus')}
-                onBlur={() => this.handlerBlur('nameInputOneFocus')}
-                keyboardType={'email-address'}
-                onChangeText={(val) => this.setState({userEmail: val})}
-              />
-              <View style={{flexDirection: 'row'}}>
-                <Text style={styleLogin.InputTittle}>{Texts.pass}</Text>
-                <Text style={styleLogin.errorLogin}>
-                  {this.state.errorLogin}
-                </Text>
-              </View>
+                  <Text style={styleLogin.TextTittle}>{Texts.logIn}</Text>
+                  <TextField
+                    title={Texts.email}
+                    nameHandlerFocus={this.state.Vemail}
+                    Hfocus={() => this.handlerFocus(Texts.Pemail)}
+                    HBlur={() => this.handlerBlur(Texts.Pemail, this.state.userEmail)}
+                    campo= 'userEmail'
+                    keyboard = {false}
+                    errorLogin=''
+                    changeText={this.handleChangeText}
+                  />
               <View style={styleLogin.eyeContainer}>
                 <View>
-                  <TextInput
-                    secureTextEntry={this.state.isPasswordHidden}
-                    style={[
-                      styleLogin.InputText,
-                      this.state.nameInputTwoFocus
-                        ? styleLogin.textInputFocus
-                        : styleLogin.InputText,
-                    ]}
-                    onFocus={() => this.handlerFocus('nameInputTwoFocus')}
-                    onBlur={() => this.handlerBlur('nameInputTwoFocus')}
-                    onChangeText={(val) => this.setState({userPass: val})}
+                  <TextField
+                    title={Texts.pass}
+                    nameHandlerFocus={this.state.Vpassword}
+                    Hfocus={() => this.handlerFocus(Texts.Ppassword)}
+                    HBlur={() => this.handlerBlur(Texts.Ppassword,this.state.userPass)}
+                    campo='userPass'
+                    keyboard = {this.state.isPasswordHidden}
+                    errorLogin={this.state.errorLogin}
+                    changeText={this.handleChangeText}
                   />
                   <TouchableOpacity
                     style={styleLogin.eyeIcon}
@@ -134,42 +115,22 @@ class Login extends React.Component {
             </View>
           </View>
         </View>
-
         <View style={styleLogin.ButomsArea}>
-          <TouchableOpacity
-            style={[
-              this.state.userEmail.trim() != '' &&
-              this.state.userPass.trim() != ''
-                ? styleLogin.loginScreenButtonBlue
-                : styleLogin.loginScreenButton,
-            ]}
-            onPress={() =>
-              this.SignInWithEmailPass(
-                this.state.userEmail,
-                this.state.userPass,
-              )
-            }>
-            <Text style={styleLogin.loginText}>{Texts.login}</Text>
-          </TouchableOpacity>
+          <ButtonAction
+              stateComponent = {this.state}
+              title={Texts.login}
+              imageRequired={false}
+              Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
+          />
           <Text style={{textAlign: 'center', color: Colors.gray, margin: 10}}>
             {Texts.or}
           </Text>
-          <TouchableOpacity
-            style={[
-              this.state.userEmail.trim() != '' &&
-              this.state.userPass.trim() != ''
-                ? styleLogin.GoogleLoginButtonBlue
-                : styleLogin.GoogleLoginButton,
-            ]}
-            onPress={() =>
-              onGoogleButtonPress()
-            }>
-            <Image
-              source={require('../images/google.png')}
-              style={styleLogin.googleLogo}
-            />
-            <Text style={styleLogin.loginText}>{Texts.login_with_google}</Text>
-          </TouchableOpacity>
+          <ButtonAction
+            stateComponent = {this.state}
+            title={Texts.login_with_google}
+            imageRequired={true}
+            Press = {() => onGoogleButtonPress()}
+          />
           <Text style={{marginTop: 20}}>
             <Text style={{color: Colors.gray}}>
               {Texts.dont_have_an_account}

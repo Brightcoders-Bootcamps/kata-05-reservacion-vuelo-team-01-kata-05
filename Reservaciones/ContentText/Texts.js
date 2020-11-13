@@ -8,4 +8,6 @@ export const Texts = {
   sign_up: 'Sign Up ',
   or: 'or',
   LoggingIn: 'Logging In...',
+  Pemail:'Vemail',
+  Ppassword: 'Vpassword'
 };
