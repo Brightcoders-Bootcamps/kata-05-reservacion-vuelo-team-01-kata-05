@@ -11,7 +11,7 @@ class ButtonAction extends Component {
   render() {
     const {stateComponent,title,imageRequired, Press} = this.props;
     return (
-      <View>
+      <View style={{flex:1, width: '100%'}}>
         <TouchableOpacity
             style={[stateComponent.userEmail != '' && stateComponent.userPass != ''
                 ? styleLogin.loginScreenButtonBlue

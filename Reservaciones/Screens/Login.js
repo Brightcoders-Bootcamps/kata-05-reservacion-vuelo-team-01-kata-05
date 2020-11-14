@@ -159,8 +159,6 @@ Login.propTypes = {
   name: PropTypes.string,
   loading: PropTypes.bool,
   isPasswordHidden: PropTypes.bool,
-  userEmail: PropTypes.string,
-  userPass: PropTypes.string,
   errorLogin: PropTypes.string,
   title: PropTypes.string,
   Vemail: PropTypes.string,

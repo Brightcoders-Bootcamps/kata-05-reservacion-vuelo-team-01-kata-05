@@ -79,6 +79,8 @@ const LoginStyle = StyleSheet.create({
     borderColor: Colors.white,
     height: 47,
     justifyContent: 'center',
+    alignContent: 'center',
+    textAlign: 'center',
     marginRight: 40,
     marginLeft: 0,
     marginTop: 10,
