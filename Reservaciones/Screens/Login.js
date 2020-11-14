@@ -119,7 +119,7 @@ import ButtonAction from '../Components/Button'
         </View>
         <View style={styleLogin.ButomsArea}>
         <View style={{width: '100%'}}>
-          <ButtonAction
+          <ButtonAction 
                 stateComponent = {this.state}
                 title={Texts.login}
                 imageRequired={false}
@@ -127,11 +127,11 @@ import ButtonAction from '../Components/Button'
             />
         </View>
         <View>
-          <Text style={{textAlign: 'center', color: Colors.gray, margin: 10}}>
+          <Text style={{textAlign: 'center',marginTop: 90, color: Colors.gray, margin: 10,}}>
             {Texts.or}
           </Text>
         </View> 
-          <View> 
+          <View style={{marginTop: 10}}> 
             <ButtonAction
               stateComponent = {this.state}
               title={Texts.login_with_google}
@@ -139,7 +139,7 @@ import ButtonAction from '../Components/Button'
               Press = {() => onGoogleButtonPress()}
             />
           </View>
-          <Text style={{marginTop: 20, margin: 90, width: '100%'}}>
+          <Text style={{marginTop: 80, margin: 90, width: '100%'}}>
             <Text style={{color: Colors.gray}}>
               {Texts.dont_have_an_account}
             </Text>

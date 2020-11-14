@@ -83,7 +83,6 @@ const LoginStyle = StyleSheet.create({
     textAlign: 'center',
     marginRight: 40,
     marginLeft: 0,
-    marginTop: 10,
     width: '100%'
   },
   loginScreenButtonBlue: {
