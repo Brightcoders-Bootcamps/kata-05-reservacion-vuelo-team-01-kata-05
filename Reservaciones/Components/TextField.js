@@ -11,7 +11,7 @@ class TextField extends Component {
     const {nameHandlerFocus, Hfocus, HBlur, campo, changeText, title, keyboard, errorLogin} = this.props;
     return (
       <View>
-        <View style={{flexDirection: 'row'}}>
+        <View style={{flexDirection: 'row',}}>
             <Text style={styleLogin.InputTittle}>{title}</Text>
             <Text style={styleLogin.errorLogin}>{errorLogin}</Text>
         </View>

@@ -4,7 +4,7 @@ export const Texts = {
   logIn: 'Log In',
   login: 'Login',
   login_with_google: 'Login with Google',
-  dont_have_an_account: 'Don´t have an account?',
+  dont_have_an_account: 'Don´t have an account? ',
   sign_up: 'Sign Up ',
   or: 'or',
   LoggingIn: 'Logging In...',

@@ -22,11 +22,9 @@ const LoginStyle = StyleSheet.create({
   InputText: {
     borderColor: Colors.gray,
     borderWidth: 1,
-    flexWrap: 'wrap',
     height: 48,
     justifyContent: 'center',
     marginBottom: 15,
-    width: 380,
     color: Colors.black,
   },
   textInputFocus: {
@@ -36,7 +34,7 @@ const LoginStyle = StyleSheet.create({
     height: 48,
     justifyContent: 'center',
     marginBottom: 15,
-    width: 400,
+    width: 380,
     color: Colors.black,
   },
   ShowPass: {
@@ -45,7 +43,6 @@ const LoginStyle = StyleSheet.create({
     marginRight: 5,
   },
   ButomsArea: {
-    alignItems: 'center',
     color: Colors.white,
     flex: 1,
     marginTop: 40,
@@ -55,7 +52,6 @@ const LoginStyle = StyleSheet.create({
     borderRadius: 10,
     flexWrap: 'wrap',
     height: 47,
-    justifyContent: 'center',
     margin: 10,
     padding: 20,
     width: '100%',
@@ -69,6 +65,12 @@ const LoginStyle = StyleSheet.create({
     margin: 10,
     padding: 20,
     width: '100%',
+  },  
+  googleLogo: {
+    position: 'absolute',
+    resizeMode: 'contain',
+    width: 27,
+    marginLeft: 25
   },
   loginScreenButton: {
     backgroundColor: Colors.gray,
@@ -78,9 +80,9 @@ const LoginStyle = StyleSheet.create({
     height: 47,
     justifyContent: 'center',
     marginRight: 40,
-    marginLeft: 40,
+    marginLeft: 0,
     marginTop: 10,
-    width: '100%',
+    width: '100%'
   },
   loginScreenButtonBlue: {
     backgroundColor: Colors.blue,
@@ -90,16 +92,16 @@ const LoginStyle = StyleSheet.create({
     height: 47,
     justifyContent: 'center',
     marginRight: 40,
-    marginLeft: 40,
+    marginLeft: 0,
     marginTop: 10,
-    width: '100%',
+    width: '100%'
   },
   loginText: {
     color: Colors.white,
     textAlign: 'center',
-    paddingLeft: 10,
-    paddingRight: 10,
     fontWeight: 'bold',
+    paddingBottom: 0,
+    fontSize: 17,
   },
   searchSection: {
     flex: 1,
@@ -112,19 +114,10 @@ const LoginStyle = StyleSheet.create({
     padding: 10,
   },
   eyeIcon: {
-    paddingTop: 17,
-    paddingRight: 10,
+    paddingTop: 44, 
+    paddingRight: 18,
     position: 'absolute',
     alignSelf: 'flex-end',
-  },
-  googleLogo: {
-    height: 30,
-    left: 0,
-    marginRight: '25%',
-    width: 30,
-  },
-  eyeContainer: {
-    flexDirection: 'row',
   },
   errorLogin: {
     color: Colors.red,

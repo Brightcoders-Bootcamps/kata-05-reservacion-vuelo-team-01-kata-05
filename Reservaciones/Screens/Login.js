@@ -82,8 +82,9 @@ import ButtonAction from '../Components/Button'
         <View>
           <View style={styleLogin.eyeContainer}>
             <View>
-                  <Text style={styleLogin.TextTittle}>{Texts.logIn}</Text>
-                  <TextField
+            <Text style={styleLogin.TextTittle}>{Texts.logIn}</Text>
+                <View>
+                <TextField
                     title={Texts.email}
                     nameHandlerFocus={this.state.Vemail}
                     Hfocus={() => this.handlerFocus(Texts.Pemail)}
@@ -93,6 +94,7 @@ import ButtonAction from '../Components/Button'
                     errorLogin=''
                     changeText={this.handleChangeText}
                   />
+                </View>
               <View style={styleLogin.eyeContainer}>
                 <View>
                   <TextField
@@ -116,28 +118,34 @@ import ButtonAction from '../Components/Button'
           </View>
         </View>
         <View style={styleLogin.ButomsArea}>
+        <View style={{width: '100%'}}>
           <ButtonAction
-              stateComponent = {this.state}
-              title={Texts.login}
-              imageRequired={false}
-              Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
-          />
+                stateComponent = {this.state}
+                title={Texts.login}
+                imageRequired={false}
+                Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
+            />
+        </View>
+        <View>
           <Text style={{textAlign: 'center', color: Colors.gray, margin: 10}}>
             {Texts.or}
           </Text>
-          <ButtonAction
-            stateComponent = {this.state}
-            title={Texts.login_with_google}
-            imageRequired={true}
-            Press = {() => onGoogleButtonPress()}
-          />
-          <Text style={{marginTop: 20}}>
+        </View> 
+          <View> 
+            <ButtonAction
+              stateComponent = {this.state}
+              title={Texts.login_with_google}
+              imageRequired={true}
+              Press = {() => onGoogleButtonPress()}
+            />
+          </View>
+          <Text style={{marginTop: 20, margin: 90, width: '100%'}}>
             <Text style={{color: Colors.gray}}>
               {Texts.dont_have_an_account}
             </Text>
             <Text
               style={{color: Colors.blue, textDecorationLine: 'underline'}}
-              onPress={() => Linking.openURL('https://www.google.com/')}>
+              onPress={() => this.props.navigation.navigate('SignUp')}>
               {Texts.sign_up}
             </Text>
           </Text>
