@@ -24,6 +24,7 @@ import ButtonAction from '../Components/Button'
   async function onGoogleButtonPress() {
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    this.props.navigation.navigate('SignUp');
     return auth().signInWithCredential(googleCredential);
   }
 
@@ -67,6 +68,7 @@ import ButtonAction from '../Components/Button'
             loading: false,
           });
         }, 2500);
+        this.props.navigation.navigate('SignUp');
       }
     } catch (error) {
       this.setState({
@@ -118,20 +120,18 @@ import ButtonAction from '../Components/Button'
           </View>
         </View>
         <View style={styleLogin.ButomsArea}>
-        <View style={{width: '100%'}}>
           <ButtonAction 
                 stateComponent = {this.state}
                 title={Texts.login}
                 imageRequired={false}
                 Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
             />
-        </View>
         <View>
-          <Text style={{textAlign: 'center',marginTop: 90, color: Colors.gray, margin: 10,}}>
+          <Text style={{textAlign: 'center', color: Colors.gray, margin: 10,}}>
             {Texts.or}
           </Text>
         </View> 
-          <View style={{marginTop: 10}}> 
+          <View style={{marginBottom: 480}}> 
             <ButtonAction
               stateComponent = {this.state}
               title={Texts.login_with_google}
@@ -139,7 +139,8 @@ import ButtonAction from '../Components/Button'
               Press = {() => onGoogleButtonPress()}
             />
           </View>
-          <Text style={{marginTop: 80, margin: 90, width: '100%'}}>
+          <View style={{ backgroundColor: 'red'}}>
+          <Text style={{ margin: 50, width: '100%', position: 'absolute', marginTop: -410, fontSize: 20}}>
             <Text style={{color: Colors.gray}}>
               {Texts.dont_have_an_account}
             </Text>
@@ -149,6 +150,7 @@ import ButtonAction from '../Components/Button'
               {Texts.sign_up}
             </Text>
           </Text>
+          </View>
         </View>
       </View>
     );
