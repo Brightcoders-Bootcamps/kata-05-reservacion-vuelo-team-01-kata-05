@@ -16,7 +16,6 @@ const SignupStyle = StyleSheet.create({
     txtItm: {
         marginTop: 8,
     }
-
 });
 
 export default SignupStyle;
