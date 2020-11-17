@@ -13,18 +13,18 @@ class ButtonAction extends Component {
     return (
       <View style={{flex:1, width: '100%'}}>
         <TouchableOpacity
-            style={[stateComponent.userEmail != '' && stateComponent.userPass != ''
-                ? styleLogin.loginScreenButtonBlue
-                : styleLogin.loginScreenButton,
-            ]}
-            onPress={() => Press()}>
-            {
-            imageRequired ?
-            <Image
-             source={require('../images/google.png')}
-             style={styleLogin.googleLogo} /> : null   
-            }  
-            <Text style={styleLogin.loginText}>{title}</Text>
+          style={[stateComponent.userEmail != '' && stateComponent.userPass != ''
+              ? styleLogin.loginScreenButtonBlue
+              : styleLogin.loginScreenButton,
+          ]}
+          onPress={() => Press()}>
+          {
+          imageRequired ?
+          <Image
+            source={require('../images/google.png')}
+            style={styleLogin.googleLogo} /> : null   
+          }  
+          <Text style={styleLogin.loginText}>{title}</Text>
         </TouchableOpacity>
       </View>
     );

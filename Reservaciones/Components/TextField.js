@@ -12,12 +12,12 @@ class TextField extends Component {
     return (
       <View>
         <View style={{flexDirection: 'row',}}>
-            <Text style={styleLogin.InputTittle}>{title}</Text>
+            <Text style={styleLogin.inputTittle}>{title}</Text>
             <Text style={styleLogin.errorLogin}>{errorLogin}</Text>
         </View>
         <TextInput
           style={
-            nameHandlerFocus ? styleLogin.textInputFocus : styleLogin.InputText
+            nameHandlerFocus ? styleLogin.textInputFocus : styleLogin.inputText
           }
           secureTextEntry = {keyboard}
           onFocus={() => Hfocus()} 

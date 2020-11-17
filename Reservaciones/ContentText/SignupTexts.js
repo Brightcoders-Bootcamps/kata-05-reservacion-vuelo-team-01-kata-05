@@ -18,4 +18,3 @@ export const Texts = {
     star: '+',
     checkbox2: 'Suscribe for select product updates.',
   };
-  

@@ -2,12 +2,12 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '../Styles/Colors';
 
 const LoginStyle = StyleSheet.create({
-  Father: {
+  father: {
     flex: 1,
     padding: 15,
     width: '100%',
   },
-  TextTittle: {
+  textTittle: {
     color: Colors.blue,
     fontSize: 22,
     fontWeight: 'bold',
@@ -15,11 +15,11 @@ const LoginStyle = StyleSheet.create({
     marginTop: 25,
     marginBottom: 25,
   },
-  InputTittle: {
+  inputTittle: {
     marginBottom: 10,
     color: Colors.gray,
   },
-  InputText: {
+  inputText: {
     borderColor: Colors.gray,
     borderWidth: 1,
     height: 48,
@@ -37,17 +37,17 @@ const LoginStyle = StyleSheet.create({
     width: 380,
     color: Colors.black,
   },
-  ShowPass: {
+  showPass: {
     alignSelf: 'flex-end',
     alignContent: 'flex-end',
     marginRight: 5,
   },
-  ButomsArea: {
+  butomsArea: {
     color: Colors.white,
     flex: 1,
     marginTop: 40,
   },
-  GoogleLoginButton: {
+  googleLoginButton: {
     backgroundColor: Colors.gray,
     borderRadius: 10,
     flexWrap: 'wrap',
@@ -56,7 +56,7 @@ const LoginStyle = StyleSheet.create({
     padding: 20,
     width: '100%',
   },
-  GoogleLoginButtonBlue: {
+  googleLoginButtonBlue: {
     backgroundColor: Colors.blue,
     borderRadius: 10,
     flexWrap: 'wrap',

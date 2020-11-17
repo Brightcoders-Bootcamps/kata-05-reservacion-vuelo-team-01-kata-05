@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 import {Colors} from '../Styles/Colors';
 import {Texts} from '../ContentText/Texts';
 
-
 const Loader = (props) => {
   const {loading} = props;
-
   return (
     <Modal
       transparent={true}

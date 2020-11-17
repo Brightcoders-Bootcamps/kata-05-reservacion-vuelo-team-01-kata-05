@@ -79,23 +79,23 @@ import ButtonAction from '../Components/Button'
   }
   render() {
     return (
-      <View style={styleLogin.Father}>
+      <View style={styleLogin.father}>
         <Loader loading={this.state.loading} />
         <View>
           <View style={styleLogin.eyeContainer}>
             <View>
-            <Text style={styleLogin.TextTittle}>{Texts.logIn}</Text>
+            <Text style={styleLogin.textTittle}>{Texts.logIn}</Text>
                 <View>
                 <TextField
-                    title={Texts.email}
-                    nameHandlerFocus={this.state.Vemail}
-                    Hfocus={() => this.handlerFocus(Texts.Pemail)}
-                    HBlur={() => this.handlerBlur(Texts.Pemail, this.state.userEmail)}
-                    campo= 'userEmail'
-                    keyboard = {false}
-                    errorLogin=''
-                    changeText={this.handleChangeText}
-                  />
+                  title={Texts.email}
+                  nameHandlerFocus={this.state.Vemail}
+                  Hfocus={() => this.handlerFocus(Texts.Pemail)}
+                  HBlur={() => this.handlerBlur(Texts.Pemail, this.state.userEmail)}
+                  campo= 'userEmail'
+                  keyboard = {false}
+                  errorLogin=''
+                  changeText={this.handleChangeText}
+                />
                 </View>
               <View style={styleLogin.eyeContainer}>
                 <View>
@@ -119,13 +119,13 @@ import ButtonAction from '../Components/Button'
             </View>
           </View>
         </View>
-        <View style={styleLogin.ButomsArea}>
+        <View style={styleLogin.butomsArea}>
           <ButtonAction 
-                stateComponent = {this.state}
-                title={Texts.login}
-                imageRequired={false}
-                Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
-            />
+            stateComponent = {this.state}
+            title={Texts.login}
+            imageRequired={false}
+            Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
+          />
         <View>
           <Text style={{textAlign: 'center', color: Colors.gray, margin: 10,}}>
             {Texts.or}
