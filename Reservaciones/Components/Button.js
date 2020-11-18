@@ -32,6 +32,7 @@ class ButtonAction extends Component {
 }
 
 ButtonAction.propTypes = {
+  stateComponent: PropTypes.object,
   imageRequired: PropTypes.bool,
   title: PropTypes.string,
   Press : PropTypes.func

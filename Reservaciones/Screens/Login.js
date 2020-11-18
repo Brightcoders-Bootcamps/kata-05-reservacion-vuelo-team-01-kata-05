@@ -3,7 +3,7 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Linking,
+  Alert,
 } from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
@@ -16,19 +16,14 @@ import styleLogin from '../Styles/LoginStyle';
 import Loader from '../Screens/Loader';
 import TextField from '../Components/TextField';
 import ButtonAction from '../Components/Button'
+import { text } from '@fortawesome/fontawesome-svg-core';
 
   GoogleSignin.configure({
     webClientId:
       '346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com',
   });
-  async function onGoogleButtonPress() {
-    const {idToken} = await GoogleSignin.signIn();
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    this.props.navigation.navigate('SignUp');
-    return auth().signInWithCredential(googleCredential);
-  }
 
-  class Login extends React.Component {
+ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -54,20 +49,20 @@ import ButtonAction from '../Components/Button'
     const {isPasswordHidden} = this.state;
     this.setState({isPasswordHidden: !isPasswordHidden});
   };
-  async SignInWithEmailPass(email, password) {
+  async SignInWithEmailPass() {
     try {
-      if (email.trim() === '' && password.trim() === '') {
-        alert('Campos vacios');
+      if (this.state.userEmail.trim() === '' || this.state.userPass.trim() === '') {
+        Alert.alert('Error:', 'Llena todos los campos');
       } else {
         this.setState({
           loading: true, errorLogin: '',
         });
-        await auth().signInWithEmailAndPassword(email, password);
+        await auth().signInWithEmailAndPassword(this.state.userEmail, this.state.userPass);
         setTimeout(() => {
           this.setState({
             loading: false,
           });
-        }, 2500);
+        }, 1800);
         this.props.navigation.navigate('SignUp');
       }
     } catch (error) {
@@ -76,6 +71,14 @@ import ButtonAction from '../Components/Button'
         loading: false,
       });
     }
+  }
+  async onGoogleButtonPress() {
+    this.setState({loading: true, errorLogin: ''});
+    const {idToken} = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    this.setState({loading: false });
+    this.props.navigation.navigate('SignUp');
+    return auth().signInWithCredential(googleCredential);
   }
   render() {
     return (
@@ -124,7 +127,7 @@ import ButtonAction from '../Components/Button'
             stateComponent = {this.state}
             title={Texts.login}
             imageRequired={false}
-            Press = {() => this.SignInWithEmailPass(this.state.userEmail,this.state.userPass)}
+            Press = {() => this.SignInWithEmailPass()}
           />
         <View>
           <Text style={{textAlign: 'center', color: Colors.gray, margin: 10,}}>
@@ -136,7 +139,7 @@ import ButtonAction from '../Components/Button'
               stateComponent = {this.state}
               title={Texts.login_with_google}
               imageRequired={true}
-              Press = {() => onGoogleButtonPress()}
+              Press = {() => this.onGoogleButtonPress()}
             />
           </View>
           <View style={{ backgroundColor: 'red'}}>
@@ -158,6 +161,8 @@ import ButtonAction from '../Components/Button'
 }
 
 Login.propTypes = {
+  userEmail:  PropTypes.string,
+  userPass:  PropTypes.string,
   name: PropTypes.string,
   loading: PropTypes.bool,
   isPasswordHidden: PropTypes.bool,

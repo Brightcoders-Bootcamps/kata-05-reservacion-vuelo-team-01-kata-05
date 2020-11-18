@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import styleLogin from '../Styles/LoginStyle';
 
 class TextField extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     const {nameHandlerFocus, Hfocus, HBlur, campo, changeText, title, keyboard, errorLogin} = this.props;
     return (

@@ -49,12 +49,7 @@ const styles = StyleSheet.create({
 });
 
 Loader.propTypes = {
-  loading: PropTypes.bool,
-  transparent: PropTypes.bool,
-  animationType: PropTypes.string,
-  size : PropTypes.string,
-  color: PropTypes.string,
-  animating:  PropTypes.bool,
+  loading: PropTypes.bool
 };
 
 export default Loader;
