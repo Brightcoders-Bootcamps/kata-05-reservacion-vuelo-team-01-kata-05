@@ -8,6 +8,8 @@ import {Colors} from '../Styles/Colors';
 import ButtonAction from '../components/Button';
 import ComCheckbox from '../components/CheckboxCom';
 
+
+
 class Signup extends React.Component{
     constructor(props) { 
         super(props); this.state = {
@@ -16,21 +18,61 @@ class Signup extends React.Component{
              userEmail: '', 
              userPass: '', 
              errorLogin: '',
+             userFirstName: '',
             };
         }
+
+
+  handlerFocus = (input) => {
+    this.setState({[input]: true});
+  };
+  handlerBlur = (input,leghtCampo) => {
+    if (leghtCampo != '') {
+      this.setState({[input]: true});
+    } else this.setState({[input]: false});
+  };
+  handleChangeText = ({input, val}) => {
+    this.setState({[input]: val })
+  };
+  changeShowPass = () => {
+    const {isPasswordHidden} = this.state;
+    this.setState({isPasswordHidden: !isPasswordHidden});
+  };
+
     render(){
         return(
             <View style={SignupStyle.Father}>
                 <Text style={SignupStyle.TextTittle}>{Texts.signup}</Text>
-                <TextField 
+                <TextField
                     title={Texts.firstname}
-                />
-                <TextField 
+                    nameHandlerFocus={this.state.Vfirstname}
+                    Hfocus={() => this.handlerFocus(Texts.Pfirstname)}
+                    HBlur={() => this.handlerBlur(Texts.Pfirstname, this.state.userFirstName)}
+                    campo= 'userFirstName'
+                    keyboard = {false}
+                    errorLogin=''
+                    changeText={this.handleChangeText}
+                  />
+                    <TextField
                     title={Texts.email}
-                />
-                <TextField 
+                    nameHandlerFocus={this.state.Vemail}
+                    Hfocus={() => this.handlerFocus(Texts.Pemail)}
+                    HBlur={() => this.handlerBlur(Texts.Pemail, this.state.userEmail)}
+                    campo= 'userEmail'
+                    keyboard = {false}
+                    errorLogin=''
+                    changeText={this.handleChangeText}
+                  />
+                    <TextField
                     title={Texts.pass}
-                />
+                    nameHandlerFocus={this.state.Vpassword}
+                    Hfocus={() => this.handlerFocus(Texts.Ppassword)}
+                    HBlur={() => this.handlerBlur(Texts.Ppassword, this.state.userPass)}
+                    campo= 'userPass'
+                    keyboard = {false}
+                    errorLogin=''
+                    changeText={this.handleChangeText}
+                  />
                 <Text style={{color: Colors.gray, fontSize: 13}}>{Texts.useText}</Text>
                 <ComCheckbox
                   innerText={Texts.checkbox1}

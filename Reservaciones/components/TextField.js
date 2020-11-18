@@ -14,21 +14,6 @@ class TextField extends Component {
       errorLogin: '',
     };
   }
-  handlerFocus = (input) => {
-    this.setState({[input]: true});
-  };
-  handlerBlur = (input,leghtCampo) => {
-    if (leghtCampo != '') {
-      this.setState({[input]: true});
-    } else this.setState({[input]: false});
-  };
-  handleChangeText = ({input, val}) => {
-    this.setState({[input]: val })
-  };
-  changeShowPass = () => {
-    const {isPasswordHidden} = this.state;
-    this.setState({isPasswordHidden: !isPasswordHidden});
-  };
   
   render() {
     const {nameHandlerFocus, Hfocus, HBlur, campo, changeText, title, keyboard, errorLogin} = this.props;
