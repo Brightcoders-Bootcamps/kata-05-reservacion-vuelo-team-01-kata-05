@@ -168,6 +168,7 @@ Login.propTypes = {
   isPasswordHidden: PropTypes.bool,
   errorLogin: PropTypes.string,
   title: PropTypes.string,
+  nameHandlerFocus: PropTypes.object,
   Vemail: PropTypes.string,
   Hfocus:  PropTypes.func,
   HBlur:  PropTypes.func,
