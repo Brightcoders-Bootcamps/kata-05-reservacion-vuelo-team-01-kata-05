@@ -47,7 +47,6 @@ class Signup extends React.Component{
     this.setState({[input]: true});
   };
   
-
     render(){
       return(
         <View style={SignupStyle.Father}>
@@ -142,6 +141,8 @@ Signup.propTypes = {
     Press: PropTypes.func,
     innerText: PropTypes.string,
     textRequire: PropTypes.func,
+    nameHandlerFocus: PropTypes.bool,
+    stateComponent: PropTypes.object
   };
 
 export default Signup;

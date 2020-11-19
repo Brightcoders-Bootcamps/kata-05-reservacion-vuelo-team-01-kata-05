@@ -37,6 +37,7 @@ ButtonAction.propTypes = {
   imageRequired: PropTypes.bool,
   title: PropTypes.string,
   Press : PropTypes.func,
+  stateComponent: PropTypes.object
 };
 
 export default ButtonAction;
