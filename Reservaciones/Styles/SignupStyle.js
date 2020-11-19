@@ -16,7 +16,6 @@ const SignupStyle = StyleSheet.create({
         marginTop: 25,
         marginBottom: 25,
     },
-    
 });
 
 export default SignupStyle;

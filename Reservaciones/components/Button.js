@@ -14,6 +14,8 @@ class ButtonAction extends Component {
       <View style={{flex:1, width: '100%'}}>
         <TouchableOpacity
             style={[stateComponent.userEmail != '' && stateComponent.userPass != ''
+            && stateComponent.userFirstName != '' 
+
                 ? styleLogin.loginScreenButtonBlue
                 : styleLogin.loginScreenButton,
             ]}
@@ -34,7 +36,7 @@ class ButtonAction extends Component {
 ButtonAction.propTypes = {
   imageRequired: PropTypes.bool,
   title: PropTypes.string,
-  Press : PropTypes.func
+  Press : PropTypes.func,
 };
 
 export default ButtonAction;

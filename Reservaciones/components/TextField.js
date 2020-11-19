@@ -46,7 +46,8 @@ TextField.propTypes = {
   campo: PropTypes.string,
   keyboard : PropTypes.bool,
   errorLogin: PropTypes.string,
-  changeText: PropTypes.func
+  changeText: PropTypes.func,
+  nameHandlerFocus: PropTypes.func
 };
 
 export default TextField;

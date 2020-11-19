@@ -114,8 +114,8 @@ const LoginStyle = StyleSheet.create({
     padding: 10,
   },
   eyeIcon: {
-    paddingTop: 44, 
-    paddingRight: 18,
+    paddingTop: 315, 
+    paddingRight: 28,
     position: 'absolute',
     alignSelf: 'flex-end',
   },

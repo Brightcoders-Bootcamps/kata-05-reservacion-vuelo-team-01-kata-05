@@ -1,14 +1,12 @@
 import CheckBox from '@react-native-community/checkbox';
 import React, {useState} from 'react';
 import { View, Text } from 'react-native';
-import checkboxStyle from '../Styles/CheckboxStyle';
+import PropTypes from 'prop-types';
 import { Texts } from '../ContentText/TextsSignup';
 import {Colors} from '../Styles/Colors';
-import PropTypes from 'prop-types';
-
 
 const checked = () => {
-    console.log('Checked');
+  console.log('Checked');
 }
 
 const ClicText = (props) => {
@@ -30,13 +28,9 @@ const ClicText = (props) => {
     )
 }
 
-class  ComCheckbox extends React.Component {
-    constructor(props) {
-        super(props);
-
-      }
+class ComCheckbox extends React.Component {
       render(){
-          const {textRequire, innerText} = this.props;
+          const {stateComponent, textRequire, innerText} = this.props;
       return (
       <>
         <View style={{flexDirection: 'row', marginTop: 40} }>
