@@ -11,10 +11,6 @@ import {Colors} from '../Styles/Colors';
 import styleLogin from '../Styles/LoginStyle';
 import SignupStyle from '../Styles/SignupStyle';
 
-
-
-
-
 class Signup extends React.Component{
   constructor(props) { 
     super(props); this.state = {
@@ -24,9 +20,10 @@ class Signup extends React.Component{
       userPass: '', 
       errorLogin: '',
       userFirstName: '',
+      checkboxAgree:'',
+      checkboxSubscribe:'',
     };
   }
-
 
   handlerFocus = (input) => {
     this.setState({[input]: true});
@@ -90,9 +87,13 @@ class Signup extends React.Component{
           <ComCheckbox
             innerText={Texts.checkbox1}
             textRequire={true}
+            stateComponentC = {this.state} 
+
           />
           <ComCheckbox
             innerText={Texts.checkbox2}
+            stateComponentC = {this.state} 
+
           />
           <View style={{marginTop: 40}}>
             <ButtonAction 
@@ -142,7 +143,8 @@ Signup.propTypes = {
     innerText: PropTypes.string,
     textRequire: PropTypes.func,
     nameHandlerFocus: PropTypes.bool,
-    stateComponent: PropTypes.object
+    stateComponent: PropTypes.object,
+    stateComponentC: PropTypes.object
   };
 
 export default Signup;

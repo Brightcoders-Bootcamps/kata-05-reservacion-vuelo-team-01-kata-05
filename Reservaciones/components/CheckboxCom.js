@@ -29,9 +29,16 @@ const ClicText = (props) => {
 }
 
 class ComCheckbox extends React.Component {
-      render(){
-          const {stateComponent, textRequire, innerText} = this.props;
-      return (
+  constructor(props) {
+    super(props);
+    this.state = {
+      checkboxAgree:'',
+      checkboxSubscribe:'',
+    };
+  }
+  render(){
+    const { textRequire, innerText, checkboxAgree, checkboxSubscribe} = this.props;
+    return (
       <>
         <View style={{flexDirection: 'row', marginTop: 40} }>
           <CheckBox
@@ -49,13 +56,15 @@ class ComCheckbox extends React.Component {
           </Text>
         </View>
       </>
-      ); 
-    }
+    ); 
+  }
 }
 
 ComCheckbox.props = {
     innerText: PropTypes.string,
     textRequire: PropTypes.func,
+    checkboxAgree: PropTypes.string,
+    checkboxSubscribe: PropTypes.string,
 }
 
 export default ComCheckbox;

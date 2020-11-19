@@ -3,18 +3,15 @@ import {View, Text, TouchableOpacity,Image} from 'react-native';
 import PropTypes from 'prop-types';
 import styleLogin from '../Styles/LoginStyle';
 
-
 class ButtonAction extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    const {stateComponent,title,imageRequired, Press} = this.props;
+    const {stateComponent, stateComponentC,title,imageRequired, Press} = this.props;
     return (
       <View style={{flex:1, width: '100%'}}>
         <TouchableOpacity
             style={[stateComponent.userEmail != '' && stateComponent.userPass != ''
-            && stateComponent.userFirstName != '' 
+            && stateComponent.userFirstName != ''
+            && stateComponentC.checkboxAgree != '' && stateComponentC.checkboxSubscribe != '' 
 
                 ? styleLogin.loginScreenButtonBlue
                 : styleLogin.loginScreenButton,
@@ -37,7 +34,9 @@ ButtonAction.propTypes = {
   imageRequired: PropTypes.bool,
   title: PropTypes.string,
   Press : PropTypes.func,
-  stateComponent: PropTypes.object
+  stateComponent: PropTypes.object,
+  stateComponentC: PropTypes.object
+
 };
 
 export default ButtonAction;
