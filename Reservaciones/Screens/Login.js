@@ -3,9 +3,6 @@ import styleLogin from '../Styles/LoginStyle';
 import { GoogleSocialButton } from "react-native-social-buttons";
 import { View, Text, TextInput, TouchableOpacity, Linking} from 'react-native';
 
-
-
-
 const Login = () => {
    
    return (
