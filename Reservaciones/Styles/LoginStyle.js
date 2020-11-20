@@ -37,7 +37,7 @@ const LoginStyle = StyleSheet.create({
     width: 380,
     color: Colors.black,
   },
-  showPass: {
+  showPass: {box
     alignSelf: 'flex-end',
     alignContent: 'flex-end',
     marginRight: 5,
