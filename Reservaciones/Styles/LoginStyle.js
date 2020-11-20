@@ -45,7 +45,7 @@ const LoginStyle = StyleSheet.create({
   butomsArea: {
     color: Colors.white,
     flex: 1,
-    marginTop: 40,
+    marginTop: 60,
   },
   googleLoginButton: {
     backgroundColor: Colors.gray,

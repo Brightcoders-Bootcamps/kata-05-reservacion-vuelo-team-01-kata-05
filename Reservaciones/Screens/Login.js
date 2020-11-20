@@ -112,12 +112,12 @@ import { text } from '@fortawesome/fontawesome-svg-core';
                     errorLogin={this.state.errorLogin}
                     changeText={this.handleChangeText}
                   />
-                  <TouchableOpacity
+                </View>
+                <TouchableOpacity
                     style={styleLogin.eyeIcon}
                     onPressIn={() => this.changeShowPass()}>
                     <FontAwesomeIcon icon={faEye} />
                   </TouchableOpacity>
-                </View>
               </View>
             </View>
           </View>
