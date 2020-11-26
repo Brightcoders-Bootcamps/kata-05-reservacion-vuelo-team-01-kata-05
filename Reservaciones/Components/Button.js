@@ -14,8 +14,10 @@ class ButtonAction extends Component {
       <View style={{flex:1, width: '100%'}}>
         <TouchableOpacity
           style={[stateComponent.userEmail != '' && stateComponent.userPass != ''
-              ? styleLogin.loginScreenButtonBlue
-              : styleLogin.loginScreenButton,
+            && stateComponent.userFirstName != ''  && stateComponent.agree != false
+            && stateComponent.subscribe != false
+            ? styleLogin.loginScreenButtonBlue
+            : styleLogin.loginScreenButton,
           ]}
           onPress={() => Press()}>
           {

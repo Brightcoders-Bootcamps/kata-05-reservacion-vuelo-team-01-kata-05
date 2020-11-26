@@ -37,15 +37,14 @@ const LoginStyle = StyleSheet.create({
     width: 380,
     color: Colors.black,
   },
-  showPass: {box
+  showPass: {
     alignSelf: 'flex-end',
     alignContent: 'flex-end',
     marginRight: 5,
   },
   butomsArea: {
-    color: Colors.white,
     flex: 1,
-    marginTop: 60,
+    marginTop: 40,
   },
   googleLoginButton: {
     backgroundColor: Colors.gray,

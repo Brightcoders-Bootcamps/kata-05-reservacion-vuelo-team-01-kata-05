@@ -5,7 +5,7 @@ import {Colors} from '../Styles/Colors';
 import {Texts} from '../ContentText/Texts';
 
 const Loader = (props) => {
-  const {loading} = props;
+  const {loading,text} = props;
   return (
     <Modal
       transparent={true}
@@ -20,7 +20,7 @@ const Loader = (props) => {
               animating={loading}
             />
             <Text style={{color: Colors.blue, marginTop: 25}}>
-              {Texts.LoggingIn}
+              {text}
             </Text>
           </View>
         </View>
@@ -49,7 +49,8 @@ const styles = StyleSheet.create({
 });
 
 Loader.propTypes = {
-  loading: PropTypes.bool
+  loading: PropTypes.bool,
+  text: PropTypes.string
 };
 
 export default Loader;

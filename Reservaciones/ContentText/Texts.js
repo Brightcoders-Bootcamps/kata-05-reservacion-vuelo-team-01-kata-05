@@ -1,13 +1,22 @@
 export const Texts = {
+  firstName: 'First Name',
   email: 'Email *',
   pass: 'Password *',
   logIn: 'Log In',
+  signUp: 'Sign Up',
   login: 'Login',
   login_with_google: 'Login with Google',
+  signUp_with_google: 'Sign Up with Google',
   dont_have_an_account: 'Don´t have an account? ',
+  already_have_account: 'Already have an account?',
   sign_up: 'Sign Up ',
   or: 'or',
   LoggingIn: 'Logging In...',
-  Pemail:'Vemail',
-  Ppassword: 'Vpassword'
+  signingUp: 'Sining Up..',
+  pFisrtName: 'VFisrtName',
+  pEmail:'Vemail',
+  pPassword: 'Vpassword',
+  useCharacteres: 'Use 8 or more characteres with a mix of letters, numbers, and symbols.',
+  iAgree:'I Agree to the Terms and privacity Policy.',
+  subscribe: 'Subscribe for select products updates.'
 };

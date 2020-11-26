@@ -16,7 +16,6 @@ import styleLogin from '../Styles/LoginStyle';
 import Loader from '../Screens/Loader';
 import TextField from '../Components/TextField';
 import ButtonAction from '../Components/Button'
-import { text } from '@fortawesome/fontawesome-svg-core';
 
   GoogleSignin.configure({
     webClientId:
@@ -83,17 +82,16 @@ import { text } from '@fortawesome/fontawesome-svg-core';
   render() {
     return (
       <View style={styleLogin.father}>
-        <Loader loading={this.state.loading} />
+        <Loader loading={this.state.loading} text={Texts.LoggingIn}/>
         <View>
           <View style={styleLogin.eyeContainer}>
-            <View>
             <Text style={styleLogin.textTittle}>{Texts.logIn}</Text>
                 <View>
                 <TextField
                   title={Texts.email}
                   nameHandlerFocus={this.state.Vemail}
-                  Hfocus={() => this.handlerFocus(Texts.Pemail)}
-                  HBlur={() => this.handlerBlur(Texts.Pemail, this.state.userEmail)}
+                  Hfocus={() => this.handlerFocus(Texts.pEmail)}
+                  HBlur={() => this.handlerBlur(Texts.pEmail, this.state.userEmail)}
                   campo= 'userEmail'
                   keyboard = {false}
                   errorLogin=''
@@ -105,8 +103,8 @@ import { text } from '@fortawesome/fontawesome-svg-core';
                   <TextField
                     title={Texts.pass}
                     nameHandlerFocus={this.state.Vpassword}
-                    Hfocus={() => this.handlerFocus(Texts.Ppassword)}
-                    HBlur={() => this.handlerBlur(Texts.Ppassword,this.state.userPass)}
+                    Hfocus={() => this.handlerFocus(Texts.pPassword)}
+                    HBlur={() => this.handlerBlur(Texts.pPassword,this.state.userPass)}
                     campo='userPass'
                     keyboard = {this.state.isPasswordHidden}
                     errorLogin={this.state.errorLogin}
@@ -114,14 +112,13 @@ import { text } from '@fortawesome/fontawesome-svg-core';
                   />
                 </View>
                 <TouchableOpacity
-                    style={styleLogin.eyeIcon}
-                    onPressIn={() => this.changeShowPass()}>
-                    <FontAwesomeIcon icon={faEye} />
-                  </TouchableOpacity>
+                  style={styleLogin.eyeIcon}
+                  onPressIn={() => this.changeShowPass()}>
+                  <FontAwesomeIcon icon={faEye} />
+                </TouchableOpacity>
               </View>
             </View>
           </View>
-        </View>
         <View style={styleLogin.butomsArea}>
           <ButtonAction 
             stateComponent = {this.state}
@@ -129,30 +126,26 @@ import { text } from '@fortawesome/fontawesome-svg-core';
             imageRequired={false}
             Press = {() => this.SignInWithEmailPass()}
           />
-        <View>
-          <Text style={{textAlign: 'center', color: Colors.gray, margin: 10,}}>
+          <Text style={{textAlign: 'center', color: Colors.gray, margin: 20, marginBottom: 20}}>
             {Texts.or}
           </Text>
-        </View> 
-          <View style={{marginBottom: 480}}> 
-            <ButtonAction
-              stateComponent = {this.state}
-              title={Texts.login_with_google}
-              imageRequired={true}
-              Press = {() => this.onGoogleButtonPress()}
-            />
-          </View>
-          <View style={{ backgroundColor: 'red'}}>
-          <Text style={{ margin: 50, width: '100%', position: 'absolute', marginTop: -410, fontSize: 20}}>
-            <Text style={{color: Colors.gray}}>
-              {Texts.dont_have_an_account}
+          <ButtonAction
+            stateComponent = {this.state}
+            title={Texts.login_with_google}
+            imageRequired={true}
+            Press = {() => this.onGoogleButtonPress()}
+          />
+          <View style={{ flex: 1}}>
+            <Text style={{textAlign:'center', width: '100%', marginTop:10, fontSize: 16}}>
+              <Text style={{color: Colors.gray}}>
+                {Texts.dont_have_an_account}
+              </Text>
+              <Text
+                style={{color: Colors.blue, textDecorationLine: 'underline'}}
+                onPress={() => this.props.navigation.navigate('SignUp')}>
+                {Texts.sign_up}
+              </Text>
             </Text>
-            <Text
-              style={{color: Colors.blue, textDecorationLine: 'underline'}}
-              onPress={() => this.props.navigation.navigate('SignUp')}>
-              {Texts.sign_up}
-            </Text>
-          </Text>
           </View>
         </View>
       </View>
