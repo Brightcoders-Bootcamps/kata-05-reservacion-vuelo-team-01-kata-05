@@ -26,7 +26,7 @@ class TextField extends Component {
 }
 
 TextField.propTypes = {
-  nameHandlerFocus: PropTypes.object,
+  nameHandlerFocus: PropTypes.string,
   title: PropTypes.string,
   Hfocus:  PropTypes.func,
   HBlur:  PropTypes.func,

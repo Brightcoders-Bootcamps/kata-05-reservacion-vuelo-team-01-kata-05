@@ -23,7 +23,7 @@ class ButtonAction extends Component {
           {
           imageRequired ?
           <Image
-            source={require('../images/google.png')}
+            source={require('../Images/google.png')}
             style={styleLogin.googleLogo} /> : null   
           }  
           <Text style={styleLogin.loginText}>{title}</Text>

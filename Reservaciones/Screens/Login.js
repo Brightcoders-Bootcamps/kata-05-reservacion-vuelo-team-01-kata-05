@@ -62,7 +62,7 @@ import ButtonAction from '../Components/Button'
             loading: false,
           });
         }, 1800);
-        this.props.navigation.navigate('SignUp');
+        this.props.navigation.navigate('HomeFlights');
       }
     } catch (error) {
       this.setState({
@@ -76,7 +76,7 @@ import ButtonAction from '../Components/Button'
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
     this.setState({loading: false });
-    this.props.navigation.navigate('SignUp');
+    this.props.navigation.navigate('HomeFlights');
     return auth().signInWithCredential(googleCredential);
   }
   render() {
@@ -161,7 +161,7 @@ Login.propTypes = {
   isPasswordHidden: PropTypes.bool,
   errorLogin: PropTypes.string,
   title: PropTypes.string,
-  nameHandlerFocus: PropTypes.object,
+  nameHandlerFocus: PropTypes.string,
   Vemail: PropTypes.string,
   Hfocus:  PropTypes.func,
   HBlur:  PropTypes.func,

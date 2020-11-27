@@ -3,6 +3,7 @@ import {
   View,
   Text,
   TouchableOpacity,
+  LogBox
 } from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
@@ -22,11 +23,8 @@ import ComCheckbox from '../Components/CheckboxCom'
     webClientId:
       '346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com',
   });
-  async function onGoogleButtonPress() {
-    const {idToken} = await GoogleSignin.signIn();
-    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    return auth().signInWithCredential(googleCredential);
-  }
+ 
+  LogBox.ignoreAllLogs(true);
 
   class Signup extends React.Component {
   constructor(props) {
@@ -71,9 +69,9 @@ import ComCheckbox from '../Components/CheckboxCom'
       if (this.state.userFirstName.trim() ==='' 
         || this.state.userEmail.trim() === '' 
         || this.state.userPass.trim() === '') {
-        alert('Campos vacios');
+        alert('Empty fields');
       } else if(this.state.agree === false || this.state.subscribe === false) {
-        alert('Debe aceptar terminos y condiciones');
+        alert('You must agree the terms and conditions');
       }else{
         this.setState({
           loading: true, 
@@ -81,13 +79,13 @@ import ComCheckbox from '../Components/CheckboxCom'
           errorEmail:''
         });
         await auth().
-        createUserWithEmailAndPassword(this.state.userEmail, this.state.userPass);
+        createUserWithEmailAndPassword(this.state.userEmail.toLowerCase(), this.state.userPass);
         setTimeout(() => {
           this.setState({
             loading: false,
           });
         }, 1400);
-        alert('Se creo exitosamente');
+        alert('Created succesfully');
         this.props.navigation.navigate('Login');
       }
     } catch (error) {
@@ -97,18 +95,26 @@ import ComCheckbox from '../Components/CheckboxCom'
           errorEmail:'Email in use. Use a different email',
           loading: false,
         });
-      }
-      if (error.code === 'auth/invalid-email') {
+      }else if (error.code === 'auth/invalid-email') {
         this.setState({
           errorPassword: 'Incorrect password and/or email',
           errorEmail:'',
           loading: false,
         });
+      }else{
+        alert('Something went wrong, please try again later'); 
+        this.setState({ errorPassword: '', errorEmail:'', loading: false, });
       }
-  
     }
   };
-
+  async onGoogleButtonPress() {
+    this.setState({loading: true, errorLogin: ''});
+    const {idToken} = await GoogleSignin.signIn();
+    const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+    this.setState({loading: false });
+    this.props.navigation.navigate('HomeFlights');
+    return auth().signInWithCredential(googleCredential);
+  }
   render() {
     return (
       <ScrollView>
@@ -210,7 +216,7 @@ Signup.propTypes = {
   isPasswordHidden: PropTypes.bool,
   errorLogin: PropTypes.string,
   title: PropTypes.string,
-  nameHandlerFocus: PropTypes.object,
+  nameHandlerFocus: PropTypes.string,
   Vemail: PropTypes.string,
   Hfocus:  PropTypes.func,
   HBlur:  PropTypes.func,

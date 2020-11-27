@@ -18,5 +18,13 @@ export const Texts = {
   pPassword: 'Vpassword',
   useCharacteres: 'Use 8 or more characteres with a mix of letters, numbers, and symbols.',
   iAgree:'I Agree to the Terms and privacity Policy.',
-  subscribe: 'Subscribe for select products updates.'
+  subscribe: 'Subscribe for select products updates.',
+  myflights: 'My Flights',
+  wayn: 'Where are you now?',
+  wwybft: 'Where will you be flying to?',
+  sd: 'Select date',
+  hmp: 'How many passengers?',
+  yrwr: 'Your request was received.',
+  next: 'Next',
+  finish: 'Finish'
 };
