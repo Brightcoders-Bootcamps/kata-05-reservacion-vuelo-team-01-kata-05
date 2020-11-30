@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import myFlightsStyle from '../Styles/FlightsStyle';
-import Texts from '../ContentText/Texts';
-import CardFlights from '../Components/CardMyFlights';
+import CardFlights from '../components/CardMyFlights';
 export default class myFlights extends Component {
   render() {
     return (
-      <View style={{marginTop: 20}}>
+      <View style={myFlightsStyle.homePage}>
         <Text style={myFlightsStyle.title}>My Flights</Text>
         <ScrollView>
           <CardFlights />
@@ -25,7 +24,7 @@ export default class myFlights extends Component {
           <CardFlights />
         </ScrollView>
         <TouchableOpacity style={myFlightsStyle.addButton}>
-          <Image style={{height:20, width:20}}  source={require('../Images/plus.png')} />
+          <Image source={require('../Images/plus.png')} />
         </TouchableOpacity>
       </View>
     );

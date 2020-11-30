@@ -8,7 +8,7 @@ const CardFligthStyle = StyleSheet.create({
     borderBottomWidth: 2,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    margin: 10
+    margin: 10,
   },
   leftSide: {
     alignItems: 'flex-start',

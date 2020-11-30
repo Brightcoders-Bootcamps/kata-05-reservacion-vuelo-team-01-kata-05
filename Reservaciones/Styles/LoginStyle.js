@@ -42,18 +42,16 @@ const LoginStyle = StyleSheet.create({
     alignContent: 'flex-end',
     marginRight: 5,
   },
-  butomsArea: {
-    flex: 1,
+  buttonsArea: {
     marginTop: 40,
+    width: '100%',
   },
   googleLoginButton: {
     backgroundColor: Colors.gray,
     borderRadius: 10,
     flexWrap: 'wrap',
     height: 47,
-    margin: 10,
     padding: 20,
-    width: '100%',
   },
   googleLoginButtonBlue: {
     backgroundColor: Colors.blue,
@@ -61,15 +59,13 @@ const LoginStyle = StyleSheet.create({
     flexWrap: 'wrap',
     height: 47,
     justifyContent: 'center',
-    margin: 10,
     padding: 20,
-    width: '100%',
-  },  
+  },
   googleLogo: {
     position: 'absolute',
     resizeMode: 'contain',
     width: 27,
-    marginLeft: 25
+    marginLeft: 25,
   },
   loginScreenButton: {
     backgroundColor: Colors.gray,
@@ -78,10 +74,7 @@ const LoginStyle = StyleSheet.create({
     borderColor: Colors.white,
     height: 47,
     justifyContent: 'center',
-    alignContent: 'center',
     textAlign: 'center',
-    marginRight: 40,
-    width: '100%'
   },
   loginScreenButtonBlue: {
     backgroundColor: Colors.blue,
@@ -90,10 +83,18 @@ const LoginStyle = StyleSheet.create({
     borderColor: Colors.white,
     height: 47,
     justifyContent: 'center',
-    marginRight: 40,
-    marginLeft: 0,
-    marginTop: 10,
-    width: '100%'
+  },
+  textContainer: {
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 30,
+    textAlign: 'center',
+    width: '100%',
+  },
+  textStyle: {
+    color: Colors.gray,
+    fontSize: 16,
+    textAlign: 'center',
   },
   loginText: {
     color: Colors.white,
@@ -113,7 +114,7 @@ const LoginStyle = StyleSheet.create({
     padding: 10,
   },
   eyeIcon: {
-    paddingTop: 44, 
+    paddingTop: 44,
     paddingRight: 18,
     position: 'absolute',
     alignSelf: 'flex-end',
