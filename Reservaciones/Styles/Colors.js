@@ -7,4 +7,4 @@ export const Colors = {
   darkGray: '#21252B',
   transparent: '#00000040',
 };
-  
+

@@ -2,12 +2,12 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '../Styles/Colors';
 
 const LoginStyle = StyleSheet.create({
-  Father: {
+  father: {
     flex: 1,
     padding: 15,
     width: '100%',
   },
-  TextTittle: {
+  textTittle: {
     color: Colors.blue,
     fontSize: 22,
     fontWeight: 'bold',
@@ -15,11 +15,11 @@ const LoginStyle = StyleSheet.create({
     marginTop: 25,
     marginBottom: 25,
   },
-  InputTittle: {
+  inputTittle: {
     marginBottom: 10,
     color: Colors.gray,
   },
-  InputText: {
+  inputText: {
     borderColor: Colors.gray,
     borderWidth: 1,
     height: 48,
@@ -37,40 +37,35 @@ const LoginStyle = StyleSheet.create({
     width: 380,
     color: Colors.black,
   },
-  ShowPass: {
+  showPass: {
     alignSelf: 'flex-end',
     alignContent: 'flex-end',
     marginRight: 5,
   },
-  ButomsArea: {
-    color: Colors.white,
-    flex: 1,
+  buttonsArea: {
     marginTop: 40,
+    width: '100%',
   },
-  GoogleLoginButton: {
+  googleLoginButton: {
     backgroundColor: Colors.gray,
     borderRadius: 10,
     flexWrap: 'wrap',
     height: 47,
-    margin: 10,
     padding: 20,
-    width: '100%',
   },
-  GoogleLoginButtonBlue: {
+  googleLoginButtonBlue: {
     backgroundColor: Colors.blue,
     borderRadius: 10,
     flexWrap: 'wrap',
     height: 47,
     justifyContent: 'center',
-    margin: 10,
     padding: 20,
-    width: '100%',
-  },  
+  },
   googleLogo: {
     position: 'absolute',
     resizeMode: 'contain',
     width: 27,
-    marginLeft: 25
+    marginLeft: 25,
   },
   loginScreenButton: {
     backgroundColor: Colors.gray,
@@ -79,10 +74,7 @@ const LoginStyle = StyleSheet.create({
     borderColor: Colors.white,
     height: 47,
     justifyContent: 'center',
-    alignContent: 'center',
     textAlign: 'center',
-    marginRight: 40,
-    width: '100%'
   },
   loginScreenButtonBlue: {
     backgroundColor: Colors.blue,
@@ -91,10 +83,18 @@ const LoginStyle = StyleSheet.create({
     borderColor: Colors.white,
     height: 47,
     justifyContent: 'center',
-    marginRight: 40,
-    marginLeft: 0,
-    marginTop: 10,
-    width: '100%'
+  },
+  textContainer: {
+    justifyContent: 'center',
+    marginTop: 20,
+    marginBottom: 30,
+    textAlign: 'center',
+    width: '100%',
+  },
+  textStyle: {
+    color: Colors.gray,
+    fontSize: 16,
+    textAlign: 'center',
   },
   loginText: {
     color: Colors.white,
@@ -114,8 +114,8 @@ const LoginStyle = StyleSheet.create({
     padding: 10,
   },
   eyeIcon: {
-    paddingTop: 315, 
-    paddingRight: 28,
+    paddingTop: 44,
+    paddingRight: 18,
     position: 'absolute',
     alignSelf: 'flex-end',
   },

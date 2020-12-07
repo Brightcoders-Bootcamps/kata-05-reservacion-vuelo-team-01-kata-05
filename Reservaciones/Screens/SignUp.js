@@ -1,51 +1,56 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, LogBox} from 'react-native';
+import React  from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  LogBox
+} from 'react-native';
 import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
 import {faEye} from '@fortawesome/free-solid-svg-icons';
 import auth from '@react-native-firebase/auth';
-import {GoogleSignin, statusCodes} from '@react-native-community/google-signin';
+import {GoogleSignin,statusCodes} from '@react-native-community/google-signin';
 import {ScrollView} from 'react-native-gesture-handler';
 import PropTypes from 'prop-types';
 import {Colors} from '../Styles/Colors';
 import {Texts} from '../ContentText/Texts';
 import styleLogin from '../Styles/LoginStyle';
-import Loader from './Loader';
-import TextField from '../components/TextField';
-import ButtonAction from '../components/Button';
-import ComCheckbox from '../components/CheckboxCom';
+import Loader from '../Screens/Loader';
+import TextField from '../Components/TextField';
+import ButtonAction from '../Components/Button'
+import ComCheckbox from '../Components/CheckboxCom'
 
-GoogleSignin.configure({
-  webClientId:
-    '346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com',
-});
+  GoogleSignin.configure({
+    webClientId:
+      '346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com',
+  });
+ 
+  LogBox.ignoreAllLogs(true);
 
-LogBox.ignoreAllLogs(true);
-
-class Signup extends React.Component {
+  class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
       isPasswordHidden: true,
-      userFirstName: '',
+      userFirstName:'',
       userEmail: '',
       userPass: '',
       errorPassword: '',
-      errorEmail: '',
+      errorEmail:'',
       agree: false,
-      subscribe: false,
+      subscribe: false
     };
   }
   handlerFocus = (input) => {
     this.setState({[input]: true});
   };
-  handlerBlur = (input, leghtCampo) => {
+  handlerBlur = (input,leghtCampo) => {
     if (leghtCampo != '') {
       this.setState({[input]: true});
     } else this.setState({[input]: false});
   };
   handleChangeText = ({input, val}) => {
-    this.setState({[input]: val});
+    this.setState({[input]: val })
   };
   changeshowPass = () => {
     const {isPasswordHidden} = this.state;
@@ -61,24 +66,20 @@ class Signup extends React.Component {
   };
   SignUpWithEmailPass = async () => {
     try {
-      if (
-        this.state.userFirstName.trim() === '' ||
-        this.state.userEmail.trim() === '' ||
-        this.state.userPass.trim() === ''
-      ) {
+      if (this.state.userFirstName.trim() ==='' 
+        || this.state.userEmail.trim() === '' 
+        || this.state.userPass.trim() === '') {
         alert('Empty fields');
-      } else if (this.state.agree === false || this.state.subscribe === false) {
+      } else if(this.state.agree === false || this.state.subscribe === false) {
         alert('You must agree the terms and conditions');
-      } else {
+      }else{
         this.setState({
-          loading: true,
+          loading: true, 
           errorPassword: '',
-          errorEmail: '',
+          errorEmail:''
         });
-        await auth().createUserWithEmailAndPassword(
-          this.state.userEmail.toLowerCase(),
-          this.state.userPass,
-        );
+        await auth().
+        createUserWithEmailAndPassword(this.state.userEmail.toLowerCase(), this.state.userPass);
         setTimeout(() => {
           this.setState({
             loading: false,
@@ -91,24 +92,18 @@ class Signup extends React.Component {
       if (error.code === 'auth/email-already-in-use') {
         this.setState({
           errorPassword: 'Incorrect password and/or email',
-          errorEmail: 'Email in use. Use a different email',
+          errorEmail:'Email in use. Use a different email',
           loading: false,
         });
-      } else if (error.code === 'auth/invalid-email') {
+      }else if (error.code === 'auth/invalid-email') {
         this.setState({
           errorPassword: 'Incorrect password and/or email',
-          errorEmail: '',
+          errorEmail:'',
           loading: false,
         });
-      } else if (error.code === 'auth/weak-password') {
-        this.setState({
-          errorPassword: 'Use 8 or more characters.',
-          errorEmail: '',
-          loading: false,
-        });
-      } else {
-        alert('Something went wrong, please try again later');
-        this.setState({errorPassword: '', errorEmail: '', loading: false});
+      }else{
+        alert('Something went wrong, please try again later'); 
+        this.setState({ errorPassword: '', errorEmail:'', loading: false, });
       }
     }
   };
@@ -116,7 +111,7 @@ class Signup extends React.Component {
     this.setState({loading: true, errorLogin: ''});
     const {idToken} = await GoogleSignin.signIn();
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    this.setState({loading: false});
+    this.setState({loading: false });
     this.props.navigation.navigate('HomeFlights');
     return auth().signInWithCredential(googleCredential);
   }
@@ -131,12 +126,10 @@ class Signup extends React.Component {
               title={Texts.firstName}
               nameHandlerFocus={this.state.VFisrtName}
               Hfocus={() => this.handlerFocus(Texts.pFisrtName)}
-              HBlur={() =>
-                this.handlerBlur(Texts.pFisrtName, this.state.userFirstName)
-              }
-              campo="userFirstName"
-              keyboard={false}
-              errorLogin=""
+              HBlur={() => this.handlerBlur(Texts.pFisrtName, this.state.userFirstName)}
+              campo= 'userFirstName'
+              keyboard = {false}
+              errorLogin=''
               changeText={this.handleChangeText}
             />
             <TextField
@@ -144,8 +137,8 @@ class Signup extends React.Component {
               nameHandlerFocus={this.state.Vemail}
               Hfocus={() => this.handlerFocus(Texts.pEmail)}
               HBlur={() => this.handlerBlur(Texts.pEmail, this.state.userEmail)}
-              campo="userEmail"
-              keyboard={false}
+              campo= 'userEmail'
+              keyboard = {false}
               errorLogin={this.state.errorEmail}
               changeText={this.handleChangeText}
             />
@@ -154,11 +147,9 @@ class Signup extends React.Component {
                 title={Texts.pass}
                 nameHandlerFocus={this.state.Vpassword}
                 Hfocus={() => this.handlerFocus(Texts.pPassword)}
-                HBlur={() =>
-                  this.handlerBlur(Texts.pPassword, this.state.userPass)
-                }
-                campo="userPass"
-                keyboard={this.state.isPasswordHidden}
+                HBlur={() => this.handlerBlur(Texts.pPassword,this.state.userPass)}
+                campo='userPass'
+                keyboard = {this.state.isPasswordHidden}
                 errorLogin={this.state.errorPassword}
                 changeText={this.handleChangeText}
               />
@@ -168,54 +159,40 @@ class Signup extends React.Component {
                 <FontAwesomeIcon icon={faEye} />
               </TouchableOpacity>
             </View>
-            <Text style={{color: Colors.gray, fontSize: 12}}>
-              {Texts.useCharacteres}
-            </Text>
+            <Text style={{color: Colors.gray, fontSize:12}}>{Texts.useCharacteres}</Text>
           </View>
-          <View style={{marginTop: 20}}>
-            <ComCheckbox
-              infoText={Texts.iAgree}
-              infoRequire={'*'}
-              nameCheck={this.state.agree}
-              action={this.changeCheckAgree}
-            />
-            <ComCheckbox
-              infoText={Texts.subscribe}
-              infoRequire={''}
-              nameCheck={this.state.subscribe}
-              action={this.changeCheckSubscribe}
-            />
-          </View>
-          <View style={styleLogin.butomsArea}>
-            <ButtonAction
-              stateComponent={this.state}
+            <View style={{marginTop: 20}}>
+              <ComCheckbox
+                infoText={Texts.iAgree}
+                infoRequire={'*'}
+                nameCheck={this.state.agree}
+                action={this.changeCheckAgree} 
+              />
+              <ComCheckbox
+                infoText={Texts.subscribe}
+                infoRequire={''}
+                nameCheck={this.state.subscribe}
+                action={this.changeCheckSubscribe} 
+              />
+            </View>
+            <View style={styleLogin.butomsArea}>
+            <ButtonAction 
+              stateComponent = {this.state}
               title={Texts.signUp}
               imageRequired={false}
-              Press={() => this.SignUpWithEmailPass()}
+              Press = {() => this.SignUpWithEmailPass()}
             />
-            <Text
-              style={{
-                textAlign: 'center',
-                color: Colors.gray,
-                margin: 20,
-                marginBottom: 20,
-              }}>
+            <Text style={{textAlign: 'center', color: Colors.gray, margin: 20, marginBottom: 20}}>
               {Texts.or}
             </Text>
             <ButtonAction
-              stateComponent={this.state}
+              stateComponent = {this.state}
               title={Texts.signUp_with_google}
               imageRequired={true}
-              Press={() => this.onGoogleButtonPress()}
+              Press = {() => this.onGoogleButtonPress()}
             />
-            <View style={{flex: 1}}>
-              <Text
-                style={{
-                  textAlign: 'center',
-                  width: '100%',
-                  marginTop: 10,
-                  fontSize: 16,
-                }}>
+            <View style={{ flex: 1}}>
+              <Text style={{textAlign:'center', width: '100%', marginTop:10, fontSize: 16}}>
                 <Text style={{color: Colors.gray}}>
                   {Texts.already_have_account}
                 </Text>
@@ -241,14 +218,14 @@ Signup.propTypes = {
   title: PropTypes.string,
   nameHandlerFocus: PropTypes.string,
   Vemail: PropTypes.string,
-  Hfocus: PropTypes.func,
-  HBlur: PropTypes.func,
+  Hfocus:  PropTypes.func,
+  HBlur:  PropTypes.func,
   campo: PropTypes.string,
-  keyboard: PropTypes.bool,
+  keyboard : PropTypes.bool,
   errorLogin: PropTypes.string,
   changeText: PropTypes.func,
   imageRequired: PropTypes.bool,
-  Press: PropTypes.func,
+  Press : PropTypes.func
 };
 
 export default Signup;

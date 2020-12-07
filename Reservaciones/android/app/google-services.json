@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "346661789891",
+    "firebase_url": "https://agenciavuelos-48b80.firebaseio.com",
+    "project_id": "agenciavuelos-48b80",
+    "storage_bucket": "agenciavuelos-48b80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:346661789891:android:5e0dbb7ebe393932370276",
+        "android_client_info": {
+          "package_name": "com.reservaciones"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "346661789891-v5130snume3g3lqnvskp95rsbmviv82g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.reservaciones",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTzxeSDsTYzysJeAOw1YHd1x62x5Ke_lk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "346661789891-e6taibn68bvqogs5h93gs9bgdbt3utlp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
